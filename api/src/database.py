@@ -5,6 +5,8 @@ from pydantic import BaseModel
 
 from config import DATABASE_URL
 
+print(DATABASE_URL)
+
 database = databases.Database(DATABASE_URL)
 
 metadata = sqlalchemy.MetaData()

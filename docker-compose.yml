@@ -4,12 +4,11 @@ services:
         image: postgres:15.1-alpine3.17
         restart: always
         environment:
-            POSTGRES_USER: admin
-            POSTGRES_PASSWORD: example
-            POSTGRES_DB: planer_podrozy
             PGDATA: /data/
+        env_file:
+          - deployment/database.dev.env
         volumes:
-         - ./api/database:/data
+          - ./api/database:/data
         healthcheck:
             test: ["CMD-SHELL", "pg_isready -U admin -d planer_podrozy"]
             interval: 5s
@@ -19,6 +18,9 @@ services:
         build:
             context: ./
             dockerfile: ./deployment/Dockerfile.backend
+        env_file:
+          - deployment/database.dev.env
+          - deployment/backend.dev.env
         ports:
           - "8000:8000"
         depends_on:
@@ -27,3 +29,18 @@ services:
         restart: always
         volumes:
           - ./api/src:/api/
+          
+    ui:
+        build:
+            context: ./
+            dockerfile: ./deployment/Dockerfile.frontend
+        env_file:
+          - deployment/frontend.dev.env
+        ports:
+          - "8080:8080"
+        depends_on:
+          - api
+        restart: always
+        volumes:
+          - ./ui/src:/ui/src
+          - ./ui/index.html:/ui/index.html

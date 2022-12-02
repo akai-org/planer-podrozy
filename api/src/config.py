@@ -1,8 +1,17 @@
 # global configs
+from decouple import config
+
 # Database
-DATABASE_URL = "postgresql://admin:example@postgres/planer_podrozy"
+POSTGRES_USER = config("POSTGRES_USER")
+POSTGRES_PASSWORD = config("POSTGRES_PASSWORD")
+POSTGRES_DB = config("POSTGRES_DB")
+DATABASE_URL = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@postgres/{POSTGRES_DB}"
 
 # CORS
 CORS_ORIGINS = [
-    "ui:3000"
+    f'http://{config("FRONTEND_URL")}',
+    "http://127.0.0.0:8080",
+    "http://localhost:8080",
 ]
+
+print(CORS_ORIGINS)

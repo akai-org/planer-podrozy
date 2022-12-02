@@ -25,3 +25,8 @@ async def startup():
 @app.on_event("shutdown")
 async def shutdown():
     await database.disconnect()
+
+
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
