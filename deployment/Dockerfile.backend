@@ -1,0 +1,12 @@
+FROM python:3.10-alpine3.17
+
+WORKDIR /api
+
+RUN apk add postgresql-dev --repository=http://dl-cdn.alpinelinux.org/alpine/v3.17/main
+RUN apk add build-base
+
+COPY ./api/requirements/docker.txt ./requirements.txt
+
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
+
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
