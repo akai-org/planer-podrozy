@@ -3,8 +3,6 @@ on:
  pull_request:
   branches:
     - master
-  paths:
-    - 'ui/*'
 jobs:
  lhci:
    name: Lighthouse
@@ -13,7 +11,10 @@ jobs:
      - uses: actions/checkout@v2
        with:
          ref: ${{ github.event.pull_request.head.sha }}
-     - name: Use Node.js 10.x
+     - name: Change directory
+       run: 
+         cd ui/
+     - name: Use Node.js 14.x
        uses: actions/setup-node@v1
        with:
          node-version: 14.17.3
