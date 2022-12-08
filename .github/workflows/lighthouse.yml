@@ -19,6 +19,7 @@ jobs:
          npm run build
      - name: run Lighthouse CI
        run: |
+        cd ui/
         npm install -g @lhci/cli@0.8.x
         lhci autorun
        env:
