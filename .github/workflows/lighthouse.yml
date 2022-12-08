@@ -1,8 +1,5 @@
 name: Lighthouse CI
-on:
- pull_request:
-  branches:
-    - master
+on: push
 jobs:
  lhci:
    name: Lighthouse
@@ -12,7 +9,7 @@ jobs:
        with:
          ref: ${{ github.event.pull_request.head.sha }}
      - name: Change directory
-       run: 
+       run: |
          cd ui/
      - name: Use Node.js 14.x
        uses: actions/setup-node@v1
