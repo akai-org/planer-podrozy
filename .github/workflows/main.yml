@@ -1,10 +1,11 @@
-name: Github-actions-backend
+name: backend-linters
 
 on:
-  push:
   pull_request:
     branches:
-      - master
+      - main
+    paths:
+      - 'api/**'
       
 jobs:
   build:
