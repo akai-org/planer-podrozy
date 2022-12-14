@@ -1,0 +1,21 @@
+name: backend-linters
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'api/**'
+      
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: python-isort
+        uses: isort/isort-action@v1
+        with:
+          isort-version: 5.10.1 
+      
+      - name: Black Check
+        uses: jpetrucciani/black-check@22.10.0

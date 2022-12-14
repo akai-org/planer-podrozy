@@ -1,0 +1,12 @@
+FROM node:14-alpine3.16
+
+WORKDIR /ui
+
+COPY ./ui/package.json .
+COPY ./ui/package-lock.json .
+
+RUN npm ci
+
+COPY ./ui/vite.config.js .
+
+CMD ["npm", "run", "dev"]
