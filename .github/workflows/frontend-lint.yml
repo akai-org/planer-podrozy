@@ -1,0 +1,18 @@
+name: frontend-linters
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  build-and-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install modules
+        run: npm ci
+      - name: ESLint
+        run: npm run lint
+      - name: Prettier
+        run: npm run prettier
+      - name: StyleLint
+        run: npm run stylelint
