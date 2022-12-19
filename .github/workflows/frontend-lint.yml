@@ -8,6 +8,9 @@ on:
 jobs:
   build-and-lint:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./ui
     steps:
       - uses: actions/checkout@v3
       - name: Install modules
