@@ -3,6 +3,8 @@ on:
   pull_request:
     branches:
       - main
+    paths:
+      - 'ui/**'
 jobs:
   build-and-lint:
     runs-on: ubuntu-latest
