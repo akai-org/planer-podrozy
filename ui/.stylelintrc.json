@@ -1,0 +1,17 @@
+{
+  "plugins": ["stylelint-scss"],
+  "rules": {
+    "at-rule-no-unknown": true,
+    "scss/at-rule-no-unknown": true,
+    "no-empty-source": null
+  },
+  "syntax": "scss",
+  "defaultSeverity": "warning",
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-prettier",
+    "stylelint-config-standard-scss",
+    "stylelint-config-prettier-scss"
+  ],
+  "customSyntax": "postcss-scss"
+}
