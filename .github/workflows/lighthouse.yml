@@ -4,6 +4,9 @@ jobs:
  lhci:
    name: Lighthouse
    runs-on: ubuntu-latest
+   defaults:
+      run:
+        working-directory: ./ui
    steps:
      - uses: actions/checkout@v2
        with:
@@ -14,13 +17,36 @@ jobs:
          node-version: 14.17.3
      - name: npm install, build
        run: |
-         cd ui/
          npm install
          npm run build
      - name: run Lighthouse CI
        run: |
-        cd ui/
         npm install -g @lhci/cli@0.8.x
         lhci autorun
        env:
         LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+       with:
+      script: |
+          const lighthouseConfig = require('./lighthouserc');
+        
+          // Healthcheck
+          await exec.exec('lhci', ['healthcheck', '--fatal']);
+
+          // Desktop
+          for await (const url of lighthouseConfig.ci.collect.url) {
+              await exec.exec('lhci', ['collect', '--additive', '--url', url, '--psiStrategy', 'desktop', '--settings.preset', 'desktop']);
+          };
+
+          await exec.exec('lhci', ['assert']);
+          await exec.exec('lhci', ['upload', '--githubStatusContextSuffix', '/desktop']);
+
+          // Cleanup
+          await exec.exec('rm', ['-fr', '.lighthouseci']);
+
+          // Mobile
+          for await (const url of lighthouseConfig.ci.collect.url) {
+              await exec.exec('lhci', ['collect', '--additive', '--url', url, '--psiStrategy', 'mobile']);
+          };
+
+          await exec.exec('lhci', ['assert']);
+          await exec.exec('lhci', ['upload', '--githubStatusContextSuffix', '/mobile']);
