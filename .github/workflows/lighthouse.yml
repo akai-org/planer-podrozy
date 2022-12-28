@@ -19,7 +19,7 @@ jobs:
         run: |
           npm install
           npm run build
-      - name: run Lighthouse CI
+      - name: Install Lighthouse CI
         run: |
           npm install -g @lhci/cli@0.8.x
       - name: Run Lighthouse CI
@@ -29,7 +29,7 @@ jobs:
             LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
         with:
             script: |
-                const lighthouseConfig = require('./lighthouserc.json');
+                const lighthouseConfig = require('./ui/lighthouserc.json');
               
                 // Healthcheck
                 await exec.exec('lhci', ['healthcheck', '--fatal']);
