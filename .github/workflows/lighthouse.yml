@@ -22,43 +22,33 @@ jobs:
       - name: run Lighthouse CI
         run: |
           npm install -g @lhci/cli@0.8.x
-          lhci autorun
+      - name: Run Lighthouse CI
+        id: lighthouse
+        uses: actions/github-script@v6
         env:
-          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+            LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
         with:
-          script: >
-            const lighthouseConfig = require('./lighthouserc');
+            script: |
+                const lighthouseConfig = require('./lighthouserc.json');
+              
+                // Healthcheck
+                await exec.exec('lhci', ['healthcheck', '--fatal']);
 
+                // Desktop
+                for await (const url of lighthouseConfig.ci.collect.url) {
+                    await exec.exec('lhci', ['collect', '--additive', '--url', url, '--psiStrategy', 'desktop', '--settings.preset', 'desktop']);
+                };
 
-            // Healthcheck
+                await exec.exec('lhci', ['assert']);
+                await exec.exec('lhci', ['upload', '--githubStatusContextSuffix', '/desktop']);
 
-            await exec.exec('lhci', ['healthcheck', '--fatal']);
+                // Cleanup
+                await exec.exec('rm', ['-fr', '.lighthouseci']);
 
+                // Mobile
+                for await (const url of lighthouseConfig.ci.collect.url) {
+                    await exec.exec('lhci', ['collect', '--additive', '--url', url, '--psiStrategy', 'mobile']);
+                };
 
-            // Desktop
-
-            for await (const url of lighthouseConfig.ci.collect.url) {
-                await exec.exec('lhci', ['collect', '--additive', '--url', url, '--psiStrategy', 'desktop', '--settings.preset', 'desktop']);
-            };
-
-
-            await exec.exec('lhci', ['assert']);
-
-            await exec.exec('lhci', ['upload', '--githubStatusContextSuffix', '/desktop']);
-
-
-            // Cleanup
-
-            await exec.exec('rm', ['-fr', '.lighthouseci']);
-
-
-            // Mobile
-
-            for await (const url of lighthouseConfig.ci.collect.url) {
-                await exec.exec('lhci', ['collect', '--additive', '--url', url, '--psiStrategy', 'mobile']);
-            };
-
-
-            await exec.exec('lhci', ['assert']);
-
-            await exec.exec('lhci', ['upload', '--githubStatusContextSuffix', '/mobile']);
+                await exec.exec('lhci', ['assert']);
+                await exec.exec('lhci', ['upload', '--githubStatusContextSuffix', '/mobile']);
