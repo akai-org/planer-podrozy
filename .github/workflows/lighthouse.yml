@@ -1,5 +1,10 @@
-name: Lighthouse CI
-on: push
+name: lighthouse-ci
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'ui/**'
 jobs:
   lhci:
     name: Lighthouse
