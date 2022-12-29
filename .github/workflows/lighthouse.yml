@@ -1,0 +1,34 @@
+name: lighthouse-ci
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'ui/**'
+jobs:
+  lhci:
+    name: Lighthouse
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./ui
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.17.3
+      - name: npm install, build
+        run: |
+          npm install
+          npm run build
+      - name: Install Lighthouse CI
+        run: |
+          npm install -g @lhci/cli@0.8.x
+      - name: Run Lighthouse CI
+        run: |
+          lhci autorun
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
