@@ -1,0 +1,26 @@
+@use '../abstracts/' as *;
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body {
+  font-family: Poppins, sans-serif;
+}
+
+h1 {
+  font-size: $font-xxl;
+}
+
+h2 {
+  font-size: $font-xl;
+}
+
+h3 {
+  font-size: $font-l;
+}
+
+h4 {
+  font-size: $font-m;
+}
+
+p {
+  font-size: $font-s;
+}
