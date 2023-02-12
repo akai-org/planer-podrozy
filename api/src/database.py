@@ -1,9 +1,8 @@
 # db connection realted stuff
 import databases
 import sqlalchemy
-from pydantic import BaseModel
-
 from config import DATABASE_URL
+from pydantic import BaseModel
 
 print(DATABASE_URL)
 
