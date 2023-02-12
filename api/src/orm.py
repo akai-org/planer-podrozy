@@ -1,5 +1,6 @@
-from sqlalchemy import create_engine, VARCHAR, Integer, Column
+from sqlalchemy import VARCHAR, Column, Integer, create_engine
 from sqlalchemy.ext.declarative import declarative_base
+
 # from sqlalchemy.orm import sessionmaker
 
 Base = declarative_base()
