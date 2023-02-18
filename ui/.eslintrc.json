@@ -20,5 +20,6 @@
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "space-before-function-paren": ["error", "never"],
     "comma-dangle": ["error", "never"]
-  }
+  },
+  "react/prop-types": ["off"]
 }
