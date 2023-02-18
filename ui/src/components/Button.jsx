@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 const Button = ({
   fontColor = '#fff',
   bgColor = '#1b67dc',
@@ -13,11 +14,11 @@ const Button = ({
     style={{
       color: fontColor,
       backgroundColor: bgColor,
-      fontSize: fontSize,
-      width: width,
-      height: height,
-      borderRadius: borderRadius,
-      border: border,
+      fontSize,
+      width,
+      height,
+      borderRadius,
+      border,
     }}
     onClick={onClick}
   >
