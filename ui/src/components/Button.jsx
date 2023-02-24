@@ -1,29 +1,18 @@
-/* eslint-disable react/prop-types */
-const Button = ({
-  fontColor = '#fff',
-  bgColor = '#1b67dc',
-  fontSize = '36px',
-  width = '150px',
-  height = '50px',
-  borderRadius = '25px',
-  border = 'none',
-  onClick,
-  children,
-}) => (
-  <button
-    style={{
-      color: fontColor,
-      backgroundColor: bgColor,
-      fontSize,
-      width,
-      height,
-      borderRadius,
-      border,
-    }}
-    onClick={onClick}
-  >
-    {children}
-  </button>
-)
+import PropTypes from 'prop-types'
+import classes from './Button.module.css'
+
+const Button = ({ variant, onClick, children }) => {
+  return (
+    <button className={classes[`variant-${variant}`]} onClick={onClick}>
+      {children}
+    </button>
+  )
+}
+
+Button.propTypes = {
+  variant: PropTypes.number.isRequired,
+  onClick: PropTypes.func.isRequired,
+  children: PropTypes.any.isRequired,
+}
 
 export default Button
