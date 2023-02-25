@@ -1,0 +1,48 @@
+@import "../../assets/variables.scss";
+
+@mixin icons {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+.icon {
+  @include icons;
+  display: flex;
+}
+
+.button-icon {
+  @include icons;
+
+  cursor: pointer;
+}
+.blue {
+  color: $primary001;
+}
+
+.red {
+  color: $danger001;
+}
+
+.green {
+  color: $success001;
+}
+
+.white {
+  color: $white;
+}
+
+.black {
+  color: $black;
+}
+
+.small {
+  font-size: 16px;
+}
+
+.medium {
+  font-size: 32px;
+}
+
+.large {
+  font-size: 65px;
+}
