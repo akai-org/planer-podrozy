@@ -47,7 +47,7 @@ export function Icon({
 const iconsPropTypes = {
   name: PropTypes.oneOf(Object.keys(iconNames)).isRequired,
   className: PropTypes.string,
-  color: PropTypes.oneOf(['blue', 'red', 'green', 'white', 'black']),
+  color: PropTypes.oneOf(['blue', 'navy', 'purple', 'orange', 'white', 'black']),
   size: PropTypes.oneOf(['small', 'medium', 'large'])
 }
 

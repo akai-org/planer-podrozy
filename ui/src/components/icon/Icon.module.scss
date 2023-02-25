@@ -1,4 +1,4 @@
-@import "../../assets/variables.scss";
+@import "../../assets/styles/abstracts/variables";
 
 @mixin icons {
   display: inline-block;
@@ -10,39 +10,38 @@
   display: flex;
 }
 
-.button-icon {
-  @include icons;
-
-  cursor: pointer;
-}
 .blue {
-  color: $primary001;
+  color: $color-primary;
 }
 
-.red {
-  color: $danger001;
+.navy {
+  color: $color-primary-dark;
 }
 
-.green {
-  color: $success001;
+.purple {
+  color: $color-secondary;
+}
+
+.orange {
+  color: $color-tone-shift;
 }
 
 .white {
-  color: $white;
+  color: $color-white;
 }
 
 .black {
-  color: $black;
+  color: $color-black;
 }
 
 .small {
-  font-size: 16px;
+  font-size: $font-s;
 }
 
 .medium {
-  font-size: 32px;
+  font-size: $font-l;
 }
 
 .large {
-  font-size: 65px;
+  font-size: $font-xxl;
 }
