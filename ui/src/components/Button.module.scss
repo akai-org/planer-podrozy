@@ -1,11 +1,9 @@
 @import '../assets/styles/abstracts/_variables.scss';
 
-.variant-1 {
+.blue {
   color: $color-white;
   background-color: $color-primary;
   font-size: $font-l;
-  width: 512px;
-  height: 64px;
-  border-radius: 64px;
+  border-radius: 2em;
   border: none;
 }
