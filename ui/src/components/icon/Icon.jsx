@@ -51,4 +51,4 @@ const iconsPropTypes = {
   size: PropTypes.oneOf(['small', 'medium', 'large'])
 }
 
-Icon.PropTypes = iconsPropTypes
+Icon.propTypes = iconsPropTypes
