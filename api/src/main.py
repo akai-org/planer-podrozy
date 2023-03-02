@@ -4,7 +4,7 @@ from database import database
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from api.src.config import CORS_ORIGINS
+from config import CORS_ORIGINS
 
 app = FastAPI()
 
