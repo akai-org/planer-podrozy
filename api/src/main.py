@@ -1,12 +1,14 @@
 # root of the project, which inits the FastAPI app
+from auth import router
+from database import database
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from config import CORS_ORIGINS
-from database import database
-
+from api.src.config import CORS_ORIGINS
 
 app = FastAPI()
+
+app.include_router(router.router)
 
 app.add_middleware(
     CORSMiddleware,
