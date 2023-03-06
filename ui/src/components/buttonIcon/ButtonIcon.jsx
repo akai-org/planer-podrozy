@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Icon, iconNames } from '../icon/Icon'
+import { Icon, iconNames } from '../Icon'
 import styles from './ButtonIcon.module.scss'
+import classNames from 'classnames'
 
 export function ButtonIcon({
   name,
@@ -12,7 +13,7 @@ export function ButtonIcon({
   onClick
 }) {
   return (
-    <button onClick={onClick} className={styles['button-icon']}>
+    <button onClick={onClick} className={classNames(styles['button-icon'], className)}>
       <Icon name={name} className={className} color={color} size={size}/>
     </button>
   )
