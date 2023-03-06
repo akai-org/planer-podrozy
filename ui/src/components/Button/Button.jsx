@@ -4,10 +4,7 @@ import classNames from 'classnames'
 
 const Button = ({ variant, onClick, children, style }) => {
   return (
-    <button
-      className={classNames(classes[variant], classes[style])}
-      onClick={onClick}
-    >
+    <button className={classNames(classes[variant], style)} onClick={onClick}>
       {children}
     </button>
   )

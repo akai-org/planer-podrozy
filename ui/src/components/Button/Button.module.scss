@@ -1,8 +1,43 @@
-@import '../assets/styles/abstracts/_variables.scss';
+@import '../../assets/styles/abstracts/_variables.scss';
+
+@mixin universal {
+  padding: 1em;
+  border-radius: 2em;
+  border: none;
+}
 
 .blue {
   color: $color-white;
   background-color: $color-primary;
-  border-radius: 2em;
-  border: none;
+  @include universal;
+}
+
+.dark-blue {
+  color: $color-white;
+  background-color: $color-primary-dark;
+  @include universal;
+}
+
+.purple {
+  color: $color-white;
+  background-color: $color-secondary;
+  @include universal;
+}
+
+.light-red {
+  color: $color-black;
+  background-color: $color-tone-shift;
+  @include universal;
+}
+
+.black {
+  color: $color-white;
+  background-color: $color-black;
+  @include universal;
+}
+
+.white {
+  color: $color-black;
+  background-color: $color-white;
+  @include universal;
 }
