@@ -19,7 +19,7 @@ export function ButtonIcon({
   )
 }
 
-ButtonIcon.PropTypes = {
+ButtonIcon.propTypes = {
   name: PropTypes.oneOf(Object.keys(iconNames)).isRequired,
   className: PropTypes.string,
   color: PropTypes.oneOf(['blue', 'navy', 'purple', 'orange', 'white', 'black']),
