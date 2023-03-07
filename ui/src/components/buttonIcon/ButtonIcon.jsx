@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Icon, iconNames } from '../Icon'
+import { Icon, iconNames } from '../icon/Icon'
 import styles from './ButtonIcon.module.scss'
 import classNames from 'classnames'
 
