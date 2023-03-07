@@ -14,11 +14,11 @@ Button.propTypes = {
   variant: PropTypes.number,
   onClick: PropTypes.func.isRequired,
   children: PropTypes.string.isRequired,
-  style: PropTypes.string,
+  style: PropTypes.string
 }
 
 Button.defaultProps = {
-  variant: 'blue',
+  variant: 'blue'
 }
 
 export default Button
