@@ -12,4 +12,4 @@ class UserOut(schemas.BaseUser[uuid.UUID]):
     created_at: datetime
 
     class Config:
-        orm_mode: True
+        orm_mode = True
