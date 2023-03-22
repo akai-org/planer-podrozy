@@ -1,4 +1,4 @@
-import React from 'react'
+import { React } from 'react'
 import PropTypes from 'prop-types'
 
 import { BiPlusCircle } from 'react-icons/bi'
@@ -26,7 +26,9 @@ export function Icon({
   name,
   className,
   color,
-  size
+  size,
+  onMouseEnter,
+  onMouseLeave
 } = {}) {
   const CustomTag = iconNames[name]
 
@@ -47,8 +49,10 @@ export function Icon({
 const iconsPropTypes = {
   name: PropTypes.oneOf(Object.keys(iconNames)).isRequired,
   className: PropTypes.string,
-  color: PropTypes.oneOf(['blue', 'navy', 'purple', 'orange', 'white', 'black']),
-  size: PropTypes.oneOf(['small', 'medium', 'large'])
+  color: PropTypes.oneOf(['blue', 'navy', 'purple', 'orange', 'white', 'black', 'grey']),
+  size: PropTypes.oneOf(['small', 'smedium', 'medium', 'large']),
+  onMouseEnter: PropTypes.func,
+  onMouseLeave: PropTypes.func
 }
 
 Icon.propTypes = iconsPropTypes
