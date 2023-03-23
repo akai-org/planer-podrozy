@@ -10,10 +10,10 @@ export function ButtonIcon({
   className,
   color,
   size,
-  onclick
+  onClick
 }) {
   return (
-    <button onClick={onclick} className={classNames(styles['button-icon'], className)}>
+    <button onClick={onClick} className={classNames(styles['button-icon'], className)}>
       <Icon name={name} className={className} color={color} size={size}/>
     </button>
   )
@@ -22,7 +22,7 @@ export function ButtonIcon({
 ButtonIcon.propTypes = {
   name: PropTypes.oneOf(Object.keys(iconNames)).isRequired,
   className: PropTypes.string,
-  color: PropTypes.oneOf(['blue', 'navy', 'purple', 'orange', 'white', 'black', 'grey']),
+  color: PropTypes.oneOf(['blue', 'navy', 'purple', 'orange', 'white', 'black', 'grey', 'red']),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
-  onclick: PropTypes.func.isRequired
+  onClick: PropTypes.func
 }

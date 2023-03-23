@@ -10,15 +10,15 @@ export function ListItem({
   titleText,
   className,
   lat,
-  lan,
+  lon,
   time,
   imageUrl,
   onclick
 } = {}) {
-  const [isHover, setIsHover] = useState(false)
+  const [isLiked, setIsLiked] = useState(false)
 
   return (
-    <div className={classNames(styles['listitem-container'])} onClick={onclick} >
+    <div className={classNames(styles['listitem-container'])} onClick={onclick}>
       {imageUrl && (
         <div className={classNames(styles['listitem-container__image'])}>
           <img className={classNames(styles['listitem-container__image'])} src={imageUrl} alt={titleText} width={128} height={128}/>
@@ -27,17 +27,17 @@ export function ListItem({
       <div className={classNames(styles['listitem-container__box'])}>
         <div className={classNames(styles['middle-text'])}>
           <div className={classNames(styles['middle-text__title'])}>{titleText}</div>
-          <div className={classNames(styles['middle-text__latlan'])}>Lat: {lat}, Lan: {lan}</div>
+          <div className={classNames(styles['middle-text__latlan'])}>Lat: {lat}, Lon: {lon}</div>
           <div className={classNames(styles['middle-text__time'])}>
-            <Icon name='timer' size='smedium' color='purple'/>
+            <Icon name='timer' size='small' color='purple' className={styles['whenHoverTime']}/>
             <div className={classNames(styles['middle-text__time__value'])}>
               {time} minutes
             </div>
           </div>
         </div>
         <div className={classNames(styles['right-buttons'])}>
-            <ButtonIcon name="bin" size="medium" color='white' className={styles['whenHover']}/>
-            <ButtonIcon name="heart" size="medium" color={isHover ? 'orange' : 'gray'} onClick={() => setIsHover(true)}/>
+            <ButtonIcon name="bin" size="medium" color='white' className={styles['whenHoverBin']}/>
+            <ButtonIcon name="heart" size="medium" onClick={() => setIsLiked(prevState => !prevState)} color={isLiked ? 'red' : 'grey'} className={isLiked ? '' : styles['whenHoverHeart']} />
         </div>
       </div>
     </div>
@@ -48,12 +48,11 @@ const listItemPropTypes = {
   titleText: PropTypes.string,
   className: PropTypes.string,
   lat: PropTypes.number,
-  lan: PropTypes.number,
+  lon: PropTypes.number,
   time: PropTypes.number,
   imageUrl: PropTypes.string,
-  onclick: PropTypes.func
-  // color: PropTypes.oneOf(['blue', 'red', 'green', 'white', 'black']),
-  // size: PropTypes.oneOf(['small', 'medium', 'large'])
+  onclick: PropTypes.func,
+  size: PropTypes.oneOf(['small', 'medium', 'large'])
 }
 
 ListItem.propTypes = listItemPropTypes

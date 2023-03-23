@@ -26,9 +26,7 @@ export function Icon({
   name,
   className,
   color,
-  size,
-  onMouseEnter,
-  onMouseLeave
+  size
 } = {}) {
   const CustomTag = iconNames[name]
 
@@ -49,10 +47,8 @@ export function Icon({
 const iconsPropTypes = {
   name: PropTypes.oneOf(Object.keys(iconNames)).isRequired,
   className: PropTypes.string,
-  color: PropTypes.oneOf(['blue', 'navy', 'purple', 'orange', 'white', 'black', 'grey']),
-  size: PropTypes.oneOf(['small', 'smedium', 'medium', 'large']),
-  onMouseEnter: PropTypes.func,
-  onMouseLeave: PropTypes.func
+  color: PropTypes.oneOf(['blue', 'navy', 'purple', 'orange', 'white', 'black', 'grey', 'red']),
+  size: PropTypes.oneOf(['small', 'medium', 'large'])
 }
 
 Icon.propTypes = iconsPropTypes

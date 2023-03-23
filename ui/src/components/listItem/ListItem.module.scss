@@ -16,8 +16,14 @@
 	grid-template-rows: 1fr;
 
 	&:hover {
-		.whenHover {
-			color: green;
+		.whenHoverBin {
+			color: $color-black;
+		}
+		.whenHoverHeart {
+			color: $color-secondary-medium;
+		}
+		.whenHoverTime {
+			color: $color-secondary-dark;
 		}
 	}
 
@@ -74,9 +80,6 @@
 		}
 	}
 }
-
-
-
 
 
 
