@@ -29,15 +29,15 @@ export function ListItem({
           <div className={classNames(styles['middle-text__title'])}>{titleText}</div>
           <div className={classNames(styles['middle-text__latlan'])}>Lat: {lat}, Lon: {lon}</div>
           <div className={classNames(styles['middle-text__time'])}>
-            <Icon name='timer' size='small' color='purple' className={styles['whenHoverTime']}/>
+            <Icon name='timer' size='small' color='purple' className={styles.whenHoverTime}/>
             <div className={classNames(styles['middle-text__time__value'])}>
               {time} minutes
             </div>
           </div>
         </div>
         <div className={classNames(styles['right-buttons'])}>
-            <ButtonIcon name="bin" size="medium" onClick={(e) => e.stopPropagation()} color='white' className={classNames(styles['whenHoverBin'])}/>
-            <ButtonIcon name="heart" size="medium" onClick={(e) => { e.stopPropagation(); setIsLiked(prevState => !prevState) }} color={isLiked ? 'red' : 'grey'} className={isLiked ? '' : styles['whenHoverHeart']} />
+            <ButtonIcon name="bin" size="medium" onClick={(e) => e.stopPropagation()} color='white' className={classNames(styles.whenHoverBin)}/>
+            <ButtonIcon name="heart" size="medium" onClick={(e) => { e.stopPropagation(); setIsLiked(prevState => !prevState) }} color={isLiked ? 'red' : 'grey'} className={isLiked ? '' : styles.whenHoverHeart} />
         </div>
       </div>
     </div>
