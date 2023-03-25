@@ -36,8 +36,8 @@ export function ListItem({
           </div>
         </div>
         <div className={classNames(styles['right-buttons'])}>
-            <ButtonIcon name="bin" size="medium" color='white' className={styles['whenHoverBin']}/>
-            <ButtonIcon name="heart" size="medium" onClick={() => setIsLiked(prevState => !prevState)} color={isLiked ? 'red' : 'grey'} className={isLiked ? '' : styles['whenHoverHeart']} />
+            <ButtonIcon name="bin" size="medium" onClick={(e) => e.stopPropagation()} color='white' className={classNames(styles['whenHoverBin'])}/>
+            <ButtonIcon name="heart" size="medium" onClick={(e) => { e.stopPropagation(); setIsLiked(prevState => !prevState) }} color={isLiked ? 'red' : 'grey'} className={isLiked ? '' : styles['whenHoverHeart']} />
         </div>
       </div>
     </div>
