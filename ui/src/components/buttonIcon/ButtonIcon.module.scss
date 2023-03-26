@@ -1,0 +1,10 @@
+@import '../../assets/styles/abstracts/variables';
+@import './../icon/Icon.module.scss';
+
+.button-icon {
+  @include icons;
+
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}

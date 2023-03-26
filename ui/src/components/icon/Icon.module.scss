@@ -1,0 +1,47 @@
+@import "../../assets/styles/abstracts/variables";
+
+@mixin icons {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+.icon {
+  @include icons;
+  display: flex;
+}
+
+.blue {
+  color: $color-primary;
+}
+
+.navy {
+  color: $color-primary-dark;
+}
+
+.purple {
+  color: $color-secondary;
+}
+
+.orange {
+  color: $color-tone-shift;
+}
+
+.white {
+  color: $color-white;
+}
+
+.black {
+  color: $color-black;
+}
+
+.small {
+  font-size: $font-s;
+}
+
+.medium {
+  font-size: $font-l;
+}
+
+.large {
+  font-size: $font-xxl;
+}
