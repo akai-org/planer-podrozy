@@ -77,12 +77,26 @@ If you have Docker, you can use the tutorial described <a href="#docker">here</a
 cd ./api
 ```
 
-2. Install requirements
+2. Create venv
+```
+python -m venv venv
+```
+
+3. Activate venv
+```
+#Windows
+/venv/Scripts/activate
+
+#Linux
+source /venv/bin/activate
+```
+
+4. Install requirements
 ```
 pip install --no-cache-dir --upgrade -r ./requirements/docker.txt
 ```
 
-3. Run Uvicorn server
+5. Run Uvicorn server
 ```
 uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 ```
