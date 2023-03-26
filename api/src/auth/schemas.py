@@ -15,3 +15,11 @@ class UserOut(BaseModel):
 
     class Config:
         orm_mode = True
+
+class Message(BaseModel):
+    message: str
+
+
+class Token(BaseModel):
+    email:str
+    token_type:str
