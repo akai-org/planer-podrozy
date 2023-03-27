@@ -1,12 +1,14 @@
+from datetime import datetime, timedelta
+from typing import Union
+
 import jwt
 from passlib.context import CryptContext
-from typing import Union
-from datetime import datetime, timedelta
+
 from config import SECRET
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 ACCESS_TOKEN_EXPIRE_TIME = 30
-ALGORITH = 'HS256'
+ALGORITH = "HS256"
 
 
 def hash(password: str):
