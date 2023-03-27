@@ -1,9 +1,9 @@
 <div align="center">
   
-  ![Issues](https://img.shields.io/github/issues/akai-org/planer-podrozy.svg)
-  ![PullRequestOpen](https://img.shields.io/github/issues-pr/akai-org/planer-podrozy.svg)
-  ![PullRequestClosed](https://img.shields.io/github/issues-pr-closed/akai-org/planer-podrozy.svg)
-  ![GiveStar](https://img.shields.io/github/followers/{username}.svg?style=social&label=Follow&maxAge=2592000)
+  [![www.google.com](https://img.shields.io/github/issues/akai-org/planer-podrozy.svg)](https://github.com/akai-org/planer-podrozy/issues)
+  [![PullRequestOpen](https://img.shields.io/github/issues-pr/akai-org/planer-podrozy.svg)](https://github.com/akai-org/planer-podrozy/pulls)
+  [![PullRequestClosed](https://img.shields.io/github/issues-pr-closed/akai-org/planer-podrozy.svg)](https://github.com/akai-org/planer-podrozy/issues?q=is%3Aissue+is%3Aclosed)
+  [![GiveStar](https://img.shields.io/github/followers/akai-org.svg?style=social&label=Follow&maxAge=2592000)](https://github.com/akai-org)
   
 </div>
 
