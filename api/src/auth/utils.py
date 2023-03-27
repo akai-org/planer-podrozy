@@ -2,11 +2,11 @@ import jwt
 from passlib.context import CryptContext
 from typing import Union
 from datetime import datetime, timedelta
+from config import SECRET
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 ACCESS_TOKEN_EXPIRE_TIME = 30
 ALGORITH = 'HS256'
-SECRET_KEY = 'very_secret_key'
 
 
 def hash(password: str):
@@ -24,5 +24,5 @@ def create_access_token(subject: Union[str, any], expires_delta: int = None) -> 
         expires_delta = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_TIME)
 
     to_encode = {"exp": expires_delta, subject: str(subject)}
-    encoded_jwt = jwt.encode(to_encode, key=SECRET_KEY, algorithm=ALGORITH)
+    encoded_jwt = jwt.encode(to_encode, key=SECRET, algorithm=ALGORITH)
     return encoded_jwt
