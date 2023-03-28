@@ -17,6 +17,7 @@
 	grid-template-rows: 1fr;
 
 	&:hover {
+		cursor: pointer;
 		.whenHoverBin {
 			color: $color-black;
 		}
@@ -30,6 +31,8 @@
 
 	&__image {
 		object-fit: cover;
+		max-height: 128px;
+		max-width: 128px;
 	}
 	&__box {
 		display: flex;
