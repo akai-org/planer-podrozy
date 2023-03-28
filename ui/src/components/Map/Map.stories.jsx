@@ -7,22 +7,26 @@ export default {
 
   parameters: {
     layout: 'centered',
-    controls: { sort: 'alpha' }
   },
 
   argTypes: {
     center: {
       control: { type: 'object' },
-      table: { category: 'props' },
       type: { required: true },
-      defaultValue: [0, 0]
+      table: {
+        category: 'props',
+        type: { summary: 'array[]', detail: '[latitude, longitude]' }
+      },
+      defaultValue: [0, 0],
+      description: 'The center of the map'
     },
 
     zoom: {
       control: { type: 'number', min: 0, max: 20, step: 1 },
       type: { required: true },
-      table: { category: 'props' },
-      defaultValue: 0
+      table: { category: 'props', type: { summary: 'number', detail: null } },
+      defaultValue: 0,
+      description: 'The zoom of the map<br/>supported zoom levels: 0-20'
     }
   },
 
