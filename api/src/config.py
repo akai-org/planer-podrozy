@@ -17,3 +17,6 @@ CORS_ORIGINS = [
 ]
 
 print(CORS_ORIGINS)
+
+# Auth
+SECRET = config("SECRET")
