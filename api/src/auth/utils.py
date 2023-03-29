@@ -2,8 +2,9 @@ from datetime import datetime, timedelta
 from typing import Union
 
 import jwt
-from api.config import SECRET
 from passlib.context import CryptContext
+
+from api.config import SECRET
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 ACCESS_TOKEN_EXPIRE_TIME = 30

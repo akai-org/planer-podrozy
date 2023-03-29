@@ -1,11 +1,11 @@
-from auth import models, schemas
-from auth.crud import get_user_by_email
-from auth.utils import create_access_token, verify
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 
 from api.database import get_db
+from auth import models, schemas
+from auth.crud import get_user_by_email
+from auth.utils import create_access_token, verify
 
 router = APIRouter(prefix="/api", tags=["auth"])
 
