@@ -34,12 +34,20 @@
   color: $color-black;
 }
 
+.grey {
+  color: $color-mid-tone;
+}
+
+.red {
+  color:$color-red;
+}
+
 .small {
-  font-size: $font-s;
+  font-size: 18px;
 }
 
 .medium {
-  font-size: $font-l;
+  font-size: 24px;
 }
 
 .large {
