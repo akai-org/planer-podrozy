@@ -29,7 +29,7 @@ services:
         restart: always
         volumes:
           - ./api/src:/api/
-          
+
     ui:
         build:
             context: ./

@@ -1,16 +1,14 @@
+import uuid
 from datetime import datetime
 
-from pydantic import BaseModel, EmailStr
+from fastapi_users import schemas
 
 
-class UserCreate(BaseModel):
-    email: EmailStr
-    password: str
+class UserCreate(schemas.BaseUserCreate):
+    pass
 
 
-class UserOut(BaseModel):
-    id: int
-    email: EmailStr
+class UserOut(schemas.BaseUser[uuid.UUID]):
     created_at: datetime
 
     class Config:
