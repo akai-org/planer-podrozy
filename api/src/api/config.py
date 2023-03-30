@@ -16,4 +16,6 @@ CORS_ORIGINS = [
     "http://localhost:8080",
 ]
 
+SECRET = config("SECRET")
+
 print(CORS_ORIGINS)
