@@ -2,6 +2,7 @@
 from typing import List
 
 from fastapi_users.db import SQLAlchemyBaseUserTableUUID
+from geoalchemy2 import Geography
 from sqlalchemy import (Boolean, Column, DateTime, Float, ForeignKey, Index,
                         Integer, String, Text, Time)
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
@@ -51,7 +52,7 @@ class RoutePoint(Base):
     restriction: Mapped[int | None] = mapped_column(
         ForeignKey('route_point_restrictions.id'))
     name = Column(String)
-    # TODO: coordinates
+    coordinates = Column(Geography(geometry_type='POINT', srid=4326))
     photo: Mapped[int] = mapped_column(ForeignKey('images.id'))
     mark = Column(Float)
     description = Column(Text)
