@@ -10,7 +10,7 @@ ACCESS_TOKEN_EXPIRE_TIME = 30
 ALGORITH = "HS256"
 
 
-def hash(password: str):
+def get_hashed_password(password: str):
     return pwd_context.hash(password)
 
 

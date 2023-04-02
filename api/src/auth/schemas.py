@@ -5,7 +5,7 @@ from pydantic import BaseModel, EmailStr
 
 class UserCreate(BaseModel):
     email: EmailStr
-    password: str
+    hashed_password: str
 
 
 class UserOut(BaseModel):
@@ -22,5 +22,5 @@ class Message(BaseModel):
 
 
 class Token(BaseModel):
-    email: str
+    token: str
     token_type: str

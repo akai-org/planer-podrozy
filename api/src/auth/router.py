@@ -1,5 +1,5 @@
 from auth import models, schemas
-from auth.crud import get_user_by_email
+from auth.crud import create_new_user, get_user_by_email
 from auth.utils import create_access_token, verify
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
@@ -19,11 +19,7 @@ def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST, detail="Email already registered"
         )
-    new_user = models.User(**user.dict())
-    db.add(new_user)
-    db.commit()
-    db.refresh(new_user)
-
+    new_user = create_new_user(db, user)
     return new_user
 
 
@@ -48,4 +44,4 @@ def login(
             detail="Incorrect email or password",
         )
 
-    return {"email": create_access_token(subject=user.email), "token_type": "bearer"}
+    return {"token": create_access_token(subject=user.email), "token_type": "bearer"}
