@@ -33,6 +33,7 @@ const errorMessage = (propName, componentName, expected) =>
   `Invalid prop \`${propName}\` supplied to \`${componentName}\`, expected ${expected}.`
 
 Map.propTypes = {
+  /** center of the map */
   center: PropTypes.arrayOf(function(
     propValue,
     key,
@@ -48,6 +49,8 @@ Map.propTypes = {
       )
     }
   }),
+
+  /** starting zoom level,<br/> supported zoom levels: 0-20 */
   zoom: function(props, propName, componentName) {
     const value = props[propName]
 
@@ -57,6 +60,11 @@ Map.propTypes = {
       )
     }
   }
+}
+
+Map.defaultProps = {
+  center: [0, 0],
+  zoom: 0
 }
 
 export default Map

@@ -17,16 +17,14 @@ export default {
         category: 'props',
         type: { summary: 'array[]', detail: '[latitude, longitude]' }
       },
-      defaultValue: [0, 0],
-      description: 'The center of the map'
+      defaultValue: [0, 0]
     },
 
     zoom: {
       control: { type: 'number', min: 0, max: 20, step: 1 },
       type: { required: true },
       table: { category: 'props', type: { summary: 'number', detail: null } },
-      defaultValue: 0,
-      description: 'The zoom of the map<br/>supported zoom levels: 0-20'
+      defaultValue: 0
     }
   },
 
