@@ -17,3 +17,11 @@ def create_new_user(db: Session, user: UserCreate):
     db.commit()
     db.refresh(new_user)
     return new_user
+
+
+def change_user_password(db: Session, user: UserCreate, new_password: str):
+    new_hashed_password = get_hashed_password(password=new_password)
+    user.hashed_password = new_hashed_password
+    db.commit()
+    db.refresh(user)
+    return user
