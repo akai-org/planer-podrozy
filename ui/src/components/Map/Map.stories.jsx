@@ -7,6 +7,7 @@ export default {
 
   parameters: {
     layout: 'centered',
+    componentSubtitle: 'A map component using react-leaflet and CARTO basemaps (dark) tiles.'
   },
 
   argTypes: {
