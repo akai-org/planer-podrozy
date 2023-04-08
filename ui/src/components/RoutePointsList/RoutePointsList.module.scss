@@ -1,0 +1,36 @@
+@import '../../assets/styles/abstracts/variables';
+
+.routePointsList-container {
+	display: flex;
+	flex-direction: row;
+	&__dots {
+		padding: 48px 2rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&__items {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+}
+.listItem{
+	list-style: none;
+	padding-bottom: 32px;
+
+}
+.listItem:last-child {
+	padding-bottom: 0;
+}
+.dotMainItem {
+	list-style: none;
+}
+.dotItem {
+	list-style: none;
+}
+.flagItem {
+	list-style: none;
+}

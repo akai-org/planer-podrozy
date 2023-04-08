@@ -1,8 +1,8 @@
 import { React, useState } from 'react'
 import PropTypes from 'prop-types'
 
-import { ButtonIcon } from '../buttonIcon/ButtonIcon'
-import { Icon } from '../icon/Icon'
+import { ButtonIcon } from '../ButtonIcon/ButtonIcon'
+import { Icon } from '../Icon/Icon'
 import styles from './ListItem.module.scss'
 import classNames from 'classnames'
 
