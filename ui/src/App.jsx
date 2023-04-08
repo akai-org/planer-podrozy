@@ -46,7 +46,6 @@ export default function App() {
   ]
   return (
   <div className={styles.app}>
-    <h2>Title</h2>
     <RoutePointsList className="testowaLista" data={neededData}/>
   </div>
   )

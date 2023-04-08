@@ -20,17 +20,11 @@
 .listItem{
 	list-style: none;
 	padding-bottom: 32px;
-
 }
 .listItem:last-child {
 	padding-bottom: 0;
 }
-.dotMainItem {
+.dotMainItem, .dotItem, .flagItem  {
 	list-style: none;
 }
-.dotItem {
-	list-style: none;
-}
-.flagItem {
-	list-style: none;
-}
+
