@@ -1,6 +1,47 @@
-import { MapContainer, TileLayer } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, useMapEvent } from 'react-leaflet'
 import styles from './Map.module.scss'
 import PropTypes from 'prop-types'
+import { flushSync } from 'react-dom'
+import { createRoot } from 'react-dom/client'
+import { useState } from 'react'
+import { Icon } from '../Icon/Icon'
+import L from 'leaflet'
+
+const div = document.createElement('div')
+const root = createRoot(div)
+flushSync(() => {
+  root.render(<Icon name={'fullLocation'} color={'white'} size={'large'} />)
+})
+
+const iconConfig = {
+  large: {
+    iconSize: [64, 64],
+    iconAnchor: [32, 58.675],
+    popupAnchor: [0, -58.675]
+  },
+
+  medium: {
+    iconSize: [24, 24],
+    iconAnchor: [12, 22],
+    popupAnchor: [0, -22]
+  }
+}
+
+const MarkerHandler = () => {
+  const [markers, setMarkers] = useState([])
+
+  const icon = L.divIcon({
+    html: div.innerHTML,
+    className: styles.marker,
+    ...iconConfig.large
+  })
+
+  useMapEvent('click', (e) => setMarkers([...markers, e.latlng]))
+
+  return markers.map((position, index) => (
+    <Marker key={`marker-${index}`} position={position} icon={icon} />
+  ))
+}
 
 /**
  * ### example: <br/>
@@ -45,6 +86,7 @@ function Map({ center, zoom }) {
         style={'dark_only_labels'}
         attribution={attribution}
       />
+      <MarkerHandler />
     </MapContainer>
   )
 }
