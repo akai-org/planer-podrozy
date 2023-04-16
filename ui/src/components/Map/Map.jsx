@@ -17,7 +17,7 @@ const LARGE_ICON_SIZE = [64, 64]
 const LARGE_ICON_ANCHOR = [32, 58.675]
 const LARGE_ICON_POPUP_ANCHOR = [0, -58.675]
 
-const MarkerHandler = () => {
+function MarkerHandler() {
   const [markers, setMarkers] = useState([])
 
   const icon = L.divIcon({
