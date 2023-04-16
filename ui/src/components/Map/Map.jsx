@@ -13,19 +13,9 @@ flushSync(() => {
   root.render(<Icon name={'fullLocation'} color={'white'} size={'large'} />)
 })
 
-const iconConfig = {
-  large: {
-    iconSize: [64, 64],
-    iconAnchor: [32, 58.675],
-    popupAnchor: [0, -58.675]
-  },
-
-  medium: {
-    iconSize: [24, 24],
-    iconAnchor: [12, 22],
-    popupAnchor: [0, -22]
-  }
-}
+const LARGE_ICON_SIZE = [64, 64]
+const LARGE_ICON_ANCHOR = [32, 58.675]
+const LARGE_ICON_POPUP_ANCHOR = [0, -58.675]
 
 const MarkerHandler = () => {
   const [markers, setMarkers] = useState([])
@@ -33,7 +23,9 @@ const MarkerHandler = () => {
   const icon = L.divIcon({
     html: div.innerHTML,
     className: styles.marker,
-    ...iconConfig.large
+    iconSize: LARGE_ICON_SIZE,
+    iconAnchor: LARGE_ICON_ANCHOR,
+    popupAnchor: LARGE_ICON_POPUP_ANCHOR
   })
 
   useMapEvent('click', (e) => setMarkers([...markers, e.latlng]))
