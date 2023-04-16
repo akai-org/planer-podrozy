@@ -37,3 +37,4 @@ export default {
 const Template = (args) => <Map {...args} />
 
 export const Primary = Template.bind({})
+Primary.storyName = 'Map'
