@@ -46,7 +46,8 @@ export default function App() {
       time: 5,
       imageUrl:
         'https://tourscanner.com/blog/wp-content/uploads/2022/02/The-National-Gallery-London.jpg'
-    }
+    },
+    {}
   ]
   return (
     <div className={styles.app}>
