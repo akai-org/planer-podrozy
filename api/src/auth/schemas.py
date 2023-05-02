@@ -1,21 +1,17 @@
 from datetime import datetime
 
+from fastapi_users import schemas
+
 from pydantic import BaseModel, EmailStr
+from sqlalchemy import Integer
 
 
-class UserCreate(BaseModel):
-    email: EmailStr
-    password: str
+class UserCreate(schemas.BaseUserCreate):
+    pass
 
 
-class UserOut(BaseModel):
-    id: int
-    email: EmailStr
-    created_at: datetime
-    hashed_password: str
-
-    class Config:
-        orm_mode = True
+class UserOut(schemas.BaseUser[Integer]):
+    pass
 
 
 class Message(BaseModel):
