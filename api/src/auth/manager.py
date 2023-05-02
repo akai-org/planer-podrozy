@@ -1,15 +1,18 @@
 from typing import Optional
 
-from auth.models import User, get_user_db
 from fastapi import Depends, Request
-from fastapi.security import OAuth2PasswordRequestForm
-from fastapi_users import BaseUserManager, IntegerIDMixin, exceptions, models
+from fastapi_users import BaseUserManager, IntegerIDMixin, exceptions, models, schemas
 from sqlalchemy import Integer
+from sqlalchemy.exc import IntegrityError
+
+from auth.exceptions import NicknameAlreadyTaken
+from auth.models import User, get_user_db
+from auth.schemas import CredentialsSchema
 
 
 class UserManager(IntegerIDMixin, BaseUserManager[User, Integer]):
     async def authenticate(
-        self, credentials: OAuth2PasswordRequestForm
+            self, credentials: CredentialsSchema
     ) -> Optional[models.UP]:
         """
         Authenticate and return a user following an email and a password.
@@ -34,6 +37,17 @@ class UserManager(IntegerIDMixin, BaseUserManager[User, Integer]):
             await self.user_db.update(user, {"hashed_password": updated_password_hash})
 
         return user
+
+    async def create(
+            self,
+            user_create: schemas.UC,
+            safe: bool = False,
+            request: Optional[Request] = None,
+    ) -> models.UP:
+        try:
+            return await super().create(user_create, safe, request)
+        except IntegrityError:
+            raise NicknameAlreadyTaken()
 
     async def on_after_register(self, user: User, request: Optional[Request] = None):
         print(f"User {user.id} has registered.")
