@@ -1,12 +1,12 @@
+from api.config import SECRET
+from auth.manager import get_user_manager
+from auth.models import User
 from fastapi import APIRouter
 from fastapi_users import FastAPIUsers
 from fastapi_users.authentication import (AuthenticationBackend,
                                           BearerTransport, JWTStrategy)
 from sqlalchemy import Integer
 
-from api.config import SECRET
-from auth.manager import get_user_manager
-from auth.models import User
 from .router.auth import get_auth_router
 
 
@@ -25,7 +25,7 @@ auth_backend = AuthenticationBackend(
 
 class GuideMeUsers(FastAPIUsers[User, Integer]):
     def get_auth_router(
-            self, backend: AuthenticationBackend, requires_verification: bool = False
+        self, backend: AuthenticationBackend, requires_verification: bool = False
     ) -> APIRouter:
         """
         Return an auth router for a given authentication backend.

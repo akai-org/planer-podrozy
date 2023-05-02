@@ -1,22 +1,22 @@
 from typing import Tuple
 
+from auth.manager import UserManager
+from auth.schemas import CredentialsSchema
 from fastapi import APIRouter, Depends, HTTPException, Request, status
 from fastapi.openapi.models import Response
 from fastapi_users import models
-from fastapi_users.authentication import AuthenticationBackend, Authenticator, Strategy
+from fastapi_users.authentication import (AuthenticationBackend, Authenticator,
+                                          Strategy)
 from fastapi_users.manager import UserManagerDependency
 from fastapi_users.openapi import OpenAPIResponseType
 from fastapi_users.router.common import ErrorCode, ErrorModel
 
-from auth.manager import UserManager
-from auth.schemas import CredentialsSchema
-
 
 def get_auth_router(
-        backend: AuthenticationBackend,
-        get_user_manager: UserManagerDependency[models.UP, models.ID],
-        authenticator: Authenticator,
-        requires_verification: bool = False,
+    backend: AuthenticationBackend,
+    get_user_manager: UserManagerDependency[models.UP, models.ID],
+    authenticator: Authenticator,
+    requires_verification: bool = False,
 ) -> APIRouter:
     """Generate a router with login/logout routes for an authentication backend."""
     router = APIRouter()
@@ -51,10 +51,10 @@ def get_auth_router(
         responses=login_responses,
     )
     async def login(
-            request: Request,
-            credentials: CredentialsSchema,
-            user_manager: UserManager = Depends(get_user_manager),
-            strategy: Strategy[models.UP, models.ID] = Depends(backend.get_strategy),
+        request: Request,
+        credentials: CredentialsSchema,
+        user_manager: UserManager = Depends(get_user_manager),
+        strategy: Strategy[models.UP, models.ID] = Depends(backend.get_strategy),
     ):
         user = await user_manager.authenticate(credentials)
 
@@ -86,8 +86,8 @@ def get_auth_router(
         "/logout", name=f"auth:{backend.name}.logout", responses=logout_responses
     )
     async def logout(
-            user_token: Tuple[models.UP, str] = Depends(get_current_user_token),
-            strategy: Strategy[models.UP, models.ID] = Depends(backend.get_strategy),
+        user_token: Tuple[models.UP, str] = Depends(get_current_user_token),
+        strategy: Strategy[models.UP, models.ID] = Depends(backend.get_strategy),
     ):
         user, token = user_token
         return await backend.logout(strategy, user, token, Response(description=""))
