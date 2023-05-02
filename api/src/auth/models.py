@@ -1,11 +1,10 @@
 from typing import Optional
 
-from fastapi import Request, Depends
+from fastapi import Depends, Request
 from fastapi.security import OAuth2PasswordRequestForm
-from fastapi_users import BaseUserManager, IntegerIDMixin, models, \
-    exceptions
+from fastapi_users import BaseUserManager, IntegerIDMixin, exceptions, models
 from fastapi_users.db import SQLAlchemyBaseUserTable, SQLAlchemyUserDatabase
-from sqlalchemy import Column, Integer, String, Boolean
+from sqlalchemy import Boolean, Column, Integer, String
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.sql.expression import text
 from sqlalchemy.sql.sqltypes import TIMESTAMP

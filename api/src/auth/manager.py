@@ -1,11 +1,10 @@
 from typing import Optional
 
-from fastapi import Request, Depends
-from fastapi.security import OAuth2PasswordRequestForm
-from fastapi_users import IntegerIDMixin, BaseUserManager, models, exceptions
-from sqlalchemy import Integer
-
 from auth.models import User, get_user_db
+from fastapi import Depends, Request
+from fastapi.security import OAuth2PasswordRequestForm
+from fastapi_users import BaseUserManager, IntegerIDMixin, exceptions, models
+from sqlalchemy import Integer
 
 
 class UserManager(IntegerIDMixin, BaseUserManager[User, Integer]):
@@ -46,12 +45,12 @@ class UserManager(IntegerIDMixin, BaseUserManager[User, Integer]):
         await super().on_after_register(user, request)
 
     async def on_after_forgot_password(
-            self, user: User, token: str, request: Optional[Request] = None
+        self, user: User, token: str, request: Optional[Request] = None
     ):
         print(f"User {user.id} has forgot their password. Reset token: {token}")
 
     async def on_after_request_verify(
-            self, user: User, token: str, request: Optional[Request] = None
+        self, user: User, token: str, request: Optional[Request] = None
     ):
         print(f"Verification requested for user {user.id}. Verification token: {token}")
 

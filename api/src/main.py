@@ -1,10 +1,10 @@
 # root of the project, which inits the FastAPI app
+from api.config import CORS_ORIGINS
+from auth import router
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from api.config import CORS_ORIGINS
 from api.database import create_db_and_tables
-from auth import router
 
 app = FastAPI()
 
@@ -22,6 +22,7 @@ app.add_middleware(
 @app.on_event("startup")
 async def init_tables():
     await create_db_and_tables()
+
 
 # @app.on_event("startup")
 # async def startup():

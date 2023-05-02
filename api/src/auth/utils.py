@@ -1,10 +1,10 @@
-from fastapi_users import FastAPIUsers
-from fastapi_users.authentication import JWTStrategy, BearerTransport, AuthenticationBackend
-from sqlalchemy import Integer
-
 from api.config import SECRET
 from auth.manager import get_user_manager
 from auth.models import User
+from fastapi_users import FastAPIUsers
+from fastapi_users.authentication import (AuthenticationBackend,
+                                          BearerTransport, JWTStrategy)
+from sqlalchemy import Integer
 
 
 def get_jwt_strategy() -> JWTStrategy:

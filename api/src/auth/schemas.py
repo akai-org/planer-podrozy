@@ -1,7 +1,6 @@
 from datetime import datetime
 
 from fastapi_users import schemas
-
 from pydantic import BaseModel, EmailStr
 from sqlalchemy import Integer
 
