@@ -2,9 +2,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from api.database import engine
-
 from api.config import CORS_ORIGINS
+from api.database import engine
 from auth import models, router
 
 models.Base.metadata.create_all(bind=engine)
