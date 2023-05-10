@@ -31,19 +31,29 @@ const Button = ({ variant, onClick, children, style }) => {
   )
 }
 
+export const buttonVariants = [
+  'blue',
+  'dark-blue',
+  'purple',
+  'light-red',
+  'black',
+  'white'
+]
+
 Button.propTypes = {
   /** color variant */
-  variant: PropTypes.string,
+  variant: PropTypes.oneOf(buttonVariants),
   /** event that will be triggered when the button is clicked */
   onClick: PropTypes.func.isRequired,
   /** content that will be displayed in the button */
   children: PropTypes.string.isRequired,
   /** additional css styles */
-  style: PropTypes.string,
+  style: PropTypes.string
 }
 
 Button.defaultProps = {
   variant: 'blue',
+  children: 'Button'
 }
 
 export default Button

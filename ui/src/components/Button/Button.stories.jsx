@@ -1,31 +1,29 @@
 import React from 'react'
-import Button from './Button'
+import Button, { buttonVariants } from './Button'
 
 export default {
   component: Button,
 
   parameters: {
-    componentSubtitle: 'A Button component.',
-    backgrounds: {
-      values: [{ name: 'blue', value: '#1b67dc' }],
-    },
+    componentSubtitle: 'A Button component.'
   },
   argsTypes: {
     variant: {
-      control: { type: 'string' },
+      options: buttonVariants,
+      control: { type: 'radio' },
       type: { required: false },
       table: {
         category: 'props',
         type: { summary: 'string', detail: 'variant' },
-        defaultValue: 'blue',
-      },
+        defaultValue: 'blue'
+      }
     },
     onClick: { action: 'clicked' },
     children: {
       options: ['children'],
       mapping: {
-        children: <button>children</button>,
-      },
+        children: <button>children</button>
+      }
     },
     style: {
       control: { type: 'string' },
@@ -33,12 +31,14 @@ export default {
       table: {
         category: 'props',
         type: { summary: 'string', detail: 'style' },
-        defaultValue: '',
-      },
-    },
-  },
+        defaultValue: ''
+      }
+    }
+  }
 }
 
 const Template = (args) => <Button {...args} />
 
 export const Primary = Template.bind({})
+
+Primary.storyName = 'Button'
