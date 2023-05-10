@@ -7,7 +7,7 @@ on:
       - backend
     paths:
       - 'api/**'
-	- '.isort.cfg'
+      - '.isort.cfg'
       
 jobs:
   build:
