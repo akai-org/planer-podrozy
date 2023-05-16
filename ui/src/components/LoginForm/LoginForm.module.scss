@@ -1,0 +1,46 @@
+@use '../../assets/styles/abstracts' as *;
+
+.view {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  align-items: center;
+  background-color: $color-bg;
+  span,
+  label,
+  header,
+  a {
+    color: white;
+  }
+}
+
+.viewHeader {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  img {
+    display: block;
+    max-width: 25%;
+  }
+}
+
+.form {
+  padding: 1em;
+  border: solid $color-tone-shift;
+  text-align: center;
+  justify-self: center;
+  background-color: $color-primary-dark;
+}
+
+.inputGroup {
+  display: grid;
+}
+
+.inputGroup,
+.passwordReset {
+  text-align: left;
+}
+
+.passwordReset {
+  display: block;
+}
