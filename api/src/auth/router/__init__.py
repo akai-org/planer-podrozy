@@ -1,4 +1,4 @@
-from auth.schemas import UserCreate, UserOut
+from auth.schemas import UserCreate, UserOut, UserRead, UserUpdate
 from auth.utils import auth_backend, fastapi_users
 from fastapi import APIRouter
 
@@ -10,3 +10,4 @@ router.include_router(
     fastapi_users.get_auth_router(auth_backend, requires_verification=False)
 )
 router.include_router(fastapi_users.get_reset_password_router())
+router.include_router(fastapi_users.get_users_router(UserRead, UserUpdate))

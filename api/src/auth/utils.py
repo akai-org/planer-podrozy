@@ -14,7 +14,7 @@ def get_jwt_strategy() -> JWTStrategy:
     return JWTStrategy(secret=SECRET, lifetime_seconds=3600)
 
 
-bearer_transport = BearerTransport(tokenUrl="auth/login")
+bearer_transport = BearerTransport(tokenUrl="/api/login")
 
 auth_backend = AuthenticationBackend(
     name="jwt",
@@ -32,7 +32,7 @@ class GuideMeUsers(FastAPIUsers[User, Integer]):
 
         :param backend: The authentication backend instance.
         :param requires_verification: Whether the authentication
-        require the user to be verified or not. Defaults to False.
+        require the  to be verified or not. Defaults to False.
         """
         return get_auth_router(
             backend,
