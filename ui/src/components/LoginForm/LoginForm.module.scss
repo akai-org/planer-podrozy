@@ -5,13 +5,6 @@
   display: grid;
   grid-template-rows: auto 1fr;
   align-items: center;
-  background-color: $color-bg;
-  span,
-  label,
-  header,
-  a {
-    color: white;
-  }
 }
 
 .viewHeader {
@@ -26,10 +19,19 @@
 
 .form {
   padding: 1em;
-  border: solid $color-tone-shift;
+  border: solid;
+  display: grid;
   text-align: center;
-  justify-self: center;
-  background-color: $color-primary-dark;
+  margin-inline: auto;
+}
+
+.error {
+  &Span {
+    color: red;
+  }
+  &Input {
+    outline: solid red;
+  }
 }
 
 .inputGroup {
@@ -39,8 +41,4 @@
 .inputGroup,
 .passwordReset {
   text-align: left;
-}
-
-.passwordReset {
-  display: block;
 }
