@@ -25,7 +25,7 @@ auth_backend = AuthenticationBackend(
 
 class GuideMeUsers(FastAPIUsers[User, Integer]):
     def get_auth_router(
-        self, backend: AuthenticationBackend, requires_verification: bool = False
+        self, backend: AuthenticationBackend, requires_verification: bool = True
     ) -> APIRouter:
         """
         Return an auth router for a given authentication backend.
