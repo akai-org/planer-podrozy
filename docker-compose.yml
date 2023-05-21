@@ -2,7 +2,7 @@ version: "3.9"
 services:
     postgres:
         image: postgres:15.1-alpine3.17
-        restart: always
+        restart: unless-stopped
         environment:
             PGDATA: /data/
         env_file:
@@ -13,7 +13,7 @@ services:
             test: ["CMD-SHELL", "pg_isready -U admin -d planer_podrozy"]
             interval: 5s
             timeout: 5s
-            retries: 10
+            retries: 15
     api:
         build:
             context: ./
@@ -26,7 +26,7 @@ services:
         depends_on:
           postgres:
             condition: service_healthy
-        restart: always
+        restart: unless-stopped
         volumes:
           - ./api/src:/api/
           
@@ -40,7 +40,7 @@ services:
           - "8080:8080"
         depends_on:
           - api
-        restart: always
+        restart: unless-stopped
         volumes:
           - ./ui/src:/ui/src
           - ./ui/index.html:/ui/index.html
