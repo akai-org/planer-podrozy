@@ -10,6 +10,7 @@ class UserCreate(schemas.BaseUserCreate):
 class UserOut(schemas.BaseUser[Integer]):
     nickname: str
 
+
 class UserRead(schemas.BaseUser[Integer]):
     pass
 

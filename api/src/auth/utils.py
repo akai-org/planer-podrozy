@@ -3,8 +3,11 @@ from auth.manager import get_user_manager
 from auth.models import User
 from fastapi import APIRouter
 from fastapi_users import FastAPIUsers
-from fastapi_users.authentication import (AuthenticationBackend,
-                                          BearerTransport, JWTStrategy)
+from fastapi_users.authentication import (
+    AuthenticationBackend,
+    BearerTransport,
+    JWTStrategy,
+)
 from sqlalchemy import Integer
 
 from .router.auth import get_auth_router
