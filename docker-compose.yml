@@ -1,7 +1,9 @@
 version: "3.9"
 services:
     postgres:
-        image: postgres:15.1-alpine3.17
+        build:
+            context: ./deployment/postgres/
+            dockerfile: ./Dockerfile.database
         restart: always
         environment:
             PGDATA: /data/
@@ -29,7 +31,7 @@ services:
         restart: always
         volumes:
           - ./api/src:/api/
-          
+
     ui:
         build:
             context: ./
