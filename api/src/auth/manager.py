@@ -1,10 +1,11 @@
 from typing import List, Optional
 
-from api.config import SECRET, EMAIL, EMAIL_PASSWORD
+from fastapi import Depends, FastAPI, Request
+
+from api.config import EMAIL, EMAIL_PASSWORD, SECRET
 from auth.exceptions import NicknameAlreadyTaken
 from auth.models import User, get_user_db
 from auth.schemas import CredentialsSchema
-from fastapi import Depends, FastAPI, Request
 from fastapi_mail import ConnectionConfig, FastMail, MessageSchema, MessageType
 from fastapi_users import BaseUserManager, IntegerIDMixin, exceptions, models, schemas
 from pydantic import BaseModel, EmailStr

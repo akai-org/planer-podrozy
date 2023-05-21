@@ -1,11 +1,12 @@
 from fastapi import Depends
+
+from api.database import Base, get_async_session
+
 from fastapi_users.db import SQLAlchemyBaseUserTable, SQLAlchemyUserDatabase
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.sql.expression import text
 from sqlalchemy.sql.sqltypes import TIMESTAMP
-
-from api.database import Base, get_async_session
 
 
 class User(SQLAlchemyBaseUserTable[int], Base):
