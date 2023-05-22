@@ -25,5 +25,5 @@ class UserUpdate(schemas.BaseUserUpdate):
     is_verified: Optional[bool] = None
 
 
-class UserRead(schemas.BaseUser[uuid.UUID]):
+class UserRead(schemas.BaseUser[Integer]):
     pass
