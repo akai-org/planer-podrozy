@@ -1,12 +1,12 @@
 from typing import Tuple
 
-from auth.manager import UserManager
-from auth.schemas import CredentialsSchema
 from fastapi import APIRouter, Depends, HTTPException, Request, status
 from fastapi.openapi.models import Response
+
+from auth.manager import UserManager
+from auth.schemas import CredentialsSchema
 from fastapi_users import models
-from fastapi_users.authentication import (AuthenticationBackend, Authenticator,
-                                          Strategy)
+from fastapi_users.authentication import AuthenticationBackend, Authenticator, Strategy
 from fastapi_users.manager import UserManagerDependency
 from fastapi_users.openapi import OpenAPIResponseType
 from fastapi_users.router.common import ErrorCode, ErrorModel
@@ -16,7 +16,7 @@ def get_auth_router(
     backend: AuthenticationBackend,
     get_user_manager: UserManagerDependency[models.UP, models.ID],
     authenticator: Authenticator,
-    requires_verification: bool = False,
+    requires_verification: bool = True,
 ) -> APIRouter:
     """Generate a router with login/logout routes for an authentication backend."""
     router = APIRouter()

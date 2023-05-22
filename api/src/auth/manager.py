@@ -1,16 +1,41 @@
-from typing import Optional
+from typing import List, Optional
 
+from fastapi import Depends, FastAPI, Request
+
+from api.config import EMAIL, EMAIL_PASSWORD, SECRET
 from auth.exceptions import NicknameAlreadyTaken
 from auth.models import User, get_user_db
 from auth.schemas import CredentialsSchema
-from fastapi import Depends, Request
-from fastapi_users import (BaseUserManager, IntegerIDMixin, exceptions, models,
-                           schemas)
+from fastapi_mail import ConnectionConfig, FastMail, MessageSchema, MessageType
+from fastapi_users import BaseUserManager, IntegerIDMixin, exceptions, models, schemas
+from pydantic import BaseModel, EmailStr
 from sqlalchemy import Integer
 from sqlalchemy.exc import IntegrityError
+from starlette.responses import JSONResponse
+
+conf = ConnectionConfig(
+    MAIL_USERNAME=EMAIL,
+    MAIL_PASSWORD=EMAIL_PASSWORD,
+    MAIL_FROM=EMAIL,
+    MAIL_PORT=587,
+    MAIL_SERVER="smtp.gmail.com",
+    MAIL_FROM_NAME="Guide.me",
+    MAIL_STARTTLS=True,
+    MAIL_SSL_TLS=False,
+    USE_CREDENTIALS=True,
+    VALIDATE_CERTS=True,
+    SUPPRESS_SEND=False,
+)
+
+
+class EmailSchema(BaseModel):
+    email: List[EmailStr]
 
 
 class UserManager(IntegerIDMixin, BaseUserManager[User, Integer]):
+    reset_password_token_secret = SECRET
+    verification_token_secret = SECRET
+
     async def authenticate(self, credentials: CredentialsSchema) -> Optional[models.UP]:
         """
         Authenticate and return a user following an email and a password.
@@ -48,11 +73,7 @@ class UserManager(IntegerIDMixin, BaseUserManager[User, Integer]):
             raise NicknameAlreadyTaken()
 
     async def on_after_register(self, user: User, request: Optional[Request] = None):
-        print(f"User {user.id} has registered.")
-
         print("User created: ", user.email)
-
-        user.active = True
 
         await super().on_after_register(user, request)
 
@@ -65,6 +86,33 @@ class UserManager(IntegerIDMixin, BaseUserManager[User, Integer]):
         self, user: User, token: str, request: Optional[Request] = None
     ):
         print(f"Verification requested for user {user.id}. Verification token: {token}")
+        # send email with randomly generated confirmation code (6 digits)
+        html = f"""
+            <h1>Email verification</h1>
+            <p>Hi! Please verify your email to finish your registration at guide.me. Your verification token:</p>
+            <p>{token}</p>
+            <p>Copy this token and paste it in the verification form.</p>
+            """
+
+        email = EmailSchema(email=[user.email])
+
+        message = MessageSchema(
+            subject="Guide.me - email verification",
+            recipients=email.dict().get("email"),
+            body=html,
+            subtype=MessageType.html,
+        )
+
+        fm = FastMail(conf)
+        await fm.send_message(message)
+        print(f"email sent to {user.email}")
+
+        user.active = True
+
+    async def on_after_verify(self, user: User, request: Optional[Request] = None):
+        print(f"User {user.email} has been verified.")
+
+        # TODO send welcome email
 
 
 async def get_user_manager(user_db=Depends(get_user_db)):

@@ -18,4 +18,7 @@ CORS_ORIGINS = [
 
 SECRET = config("SECRET")
 
+EMAIL = config("EMAIL")
+EMAIL_PASSWORD = config("EMAIL_PASSWORD")
+
 print(CORS_ORIGINS)
