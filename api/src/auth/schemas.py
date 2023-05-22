@@ -1,9 +1,8 @@
-import uuid
+from typing import Optional
 
 from fastapi_users import schemas
 from pydantic import BaseModel
 from sqlalchemy import Integer
-from typing import Optional
 
 
 class UserCreate(schemas.BaseUserCreate):
