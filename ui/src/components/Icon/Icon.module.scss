@@ -42,6 +42,10 @@
   color:$color-red;
 }
 
+.smaller {
+  font-size: 8px;
+}
+
 .small {
   font-size: 18px;
 }
@@ -51,5 +55,9 @@
 }
 
 .large {
-  font-size: $font-xxl;
+  font-size: 25px;
+}
+
+.larger {
+  font-size: 32px;
 }
