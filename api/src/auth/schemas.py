@@ -1,12 +1,10 @@
-from typing import Optional, List
+from typing import List, Optional
 
-from fastapi_users import schemas
-from pydantic import BaseModel
-from sqlalchemy import Integer
-from fastapi_mail import ConnectionConfig
 from api.config import EMAIL, EMAIL_PASSWORD
+from fastapi_mail import ConnectionConfig
+from fastapi_users import schemas
 from pydantic import BaseModel, EmailStr
-
+from sqlalchemy import Integer
 
 conf = ConnectionConfig(
     MAIL_USERNAME=EMAIL,
