@@ -1,35 +1,16 @@
-from typing import List, Optional
+from typing import Optional
 
-from fastapi import Depends, FastAPI, Request
+from fastapi import Depends, Request
 
-from api.config import EMAIL, EMAIL_PASSWORD, SECRET
+from api.config import SECRET
 from auth.exceptions import NicknameAlreadyTaken
 from auth.models import User, get_user_db
-from auth.schemas import CredentialsSchema
-from fastapi_mail import ConnectionConfig, FastMail, MessageSchema, MessageType
+from auth.schemas import CredentialsSchema, EmailSchema, conf
+from fastapi_mail import FastMail, MessageSchema, MessageType
 from fastapi_users import BaseUserManager, IntegerIDMixin, exceptions, models, schemas
-from pydantic import BaseModel, EmailStr
 from sqlalchemy import Integer
 from sqlalchemy.exc import IntegrityError
 from starlette.responses import JSONResponse
-
-conf = ConnectionConfig(
-    MAIL_USERNAME=EMAIL,
-    MAIL_PASSWORD=EMAIL_PASSWORD,
-    MAIL_FROM=EMAIL,
-    MAIL_PORT=587,
-    MAIL_SERVER="smtp.gmail.com",
-    MAIL_FROM_NAME="Guide.me",
-    MAIL_STARTTLS=True,
-    MAIL_SSL_TLS=False,
-    USE_CREDENTIALS=True,
-    VALIDATE_CERTS=True,
-    SUPPRESS_SEND=False,
-)
-
-
-class EmailSchema(BaseModel):
-    email: List[EmailStr]
 
 
 class UserManager(IntegerIDMixin, BaseUserManager[User, Integer]):
