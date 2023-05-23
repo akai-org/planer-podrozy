@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from api.database import create_db_and_tables, engine
 
 from api.config import CORS_ORIGINS
-from auth import models, router
+from auth import router
 
 app = FastAPI()
 
