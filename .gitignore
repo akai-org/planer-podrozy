@@ -1,3 +1,4 @@
 deployment/backend.dev.env
 deployment/database.dev.env
 deployment/frontend.dev.env
+venv/**
