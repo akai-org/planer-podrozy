@@ -6,7 +6,7 @@ POSTGRES_USER = config("POSTGRES_USER")
 POSTGRES_PASSWORD = config("POSTGRES_PASSWORD")
 POSTGRES_DB = config("POSTGRES_DB")
 DATABASE_URL = (
-    f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@postgres/{POSTGRES_DB}"
+    f"postgresql+asyncpg://{POSTGRES_USER}:{POSTGRES_PASSWORD}@postgres/{POSTGRES_DB}"
 )
 
 # CORS
@@ -17,5 +17,8 @@ CORS_ORIGINS = [
 ]
 
 SECRET = config("SECRET")
+
+EMAIL = config("EMAIL")
+EMAIL_PASSWORD = config("EMAIL_PASSWORD")
 
 print(CORS_ORIGINS)

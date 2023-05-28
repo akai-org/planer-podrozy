@@ -3,10 +3,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from api.config import CORS_ORIGINS
-from api.database import engine
-from auth import models, router
-
-models.Base.metadata.create_all(bind=engine)
+from api.databases import create_db_and_tables, engine
+from auth import router
 
 app = FastAPI()
 
@@ -19,6 +17,11 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.on_event("startup")
+async def init_tables():
+    await create_db_and_tables()
 
 
 # @app.on_event("startup")

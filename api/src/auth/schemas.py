@@ -1,27 +1,36 @@
-from datetime import datetime
+from typing import List, Optional
 
+from fastapi_users import schemas
 from pydantic import BaseModel, EmailStr
+from sqlalchemy import Integer
 
 
-class UserCreate(BaseModel):
-    email: EmailStr
+class UserCreate(schemas.BaseUserCreate):
+    nickname: str
+
+
+class UserOut(schemas.BaseUser[Integer]):
+    nickname: str
+
+
+class UserRead(schemas.BaseUser[Integer]):
+    pass
+
+
+class CredentialsSchema(BaseModel):
+    username: str
     password: str
 
 
-class UserOut(BaseModel):
-    id: int
-    email: EmailStr
-    created_at: datetime
-    hashed_password: str
-
-    class Config:
-        orm_mode = True
+class UserUpdate(schemas.BaseUserUpdate):
+    is_active: Optional[bool] = None
+    is_superuser: Optional[bool] = None
+    is_verified: Optional[bool] = None
 
 
-class Message(BaseModel):
-    message: str
+class UserRead(schemas.BaseUser[Integer]):
+    pass
 
 
-class Token(BaseModel):
-    token: str
-    token_type: str
+class EmailSchema(BaseModel):
+    email: List[EmailStr]
