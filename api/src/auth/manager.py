@@ -3,10 +3,10 @@ from typing import Optional
 from fastapi import Depends, Request
 
 from api.config import SECRET
+from auth.config import conf
 from auth.exceptions import NicknameAlreadyTaken
 from auth.models import User, get_user_db
 from auth.schemas import CredentialsSchema, EmailSchema
-from auth.config import conf
 from fastapi_mail import FastMail, MessageSchema, MessageType
 from fastapi_users import BaseUserManager, IntegerIDMixin, exceptions, models, schemas
 from sqlalchemy import Integer
