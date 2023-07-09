@@ -26,6 +26,13 @@
       "description": "Success dark"
     }
   },
+  "salmon": {
+    "500": {
+      "value": "#B23330",
+      "type": "color",
+      "description": "Salmon dark"
+    }
+  },
   "tokenSetOrder": {
     "0": {
       "value": "global",
