@@ -1,0 +1,35 @@
+{
+  "green": {
+    "100": {
+      "value": "#C7FFF9",
+      "type": "color",
+      "description": "Green light"
+    },
+    "200": {
+      "value": "#7EF7EA",
+      "type": "color",
+      "description": "Green light"
+    },
+    "300": {
+      "value": "#0CD0BB",
+      "type": "color",
+      "description": "Green medium"
+    },
+    "400": {
+      "value": "#1AA394",
+      "type": "color",
+      "description": "Green medium"
+    },
+    "500": {
+      "value": "#005C52",
+      "type": "color",
+      "description": "Success dark"
+    }
+  },
+  "tokenSetOrder": {
+    "0": {
+      "value": "global",
+      "type": "other"
+    }
+  }
+}

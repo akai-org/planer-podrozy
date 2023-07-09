@@ -1,0 +1,15 @@
+{
+    "source": ["transformed-tokens.json"],
+    "platforms": {
+      "scss": {
+        "transformGroup": "scss",
+        "buildPath": "src/assets/styles/abstracts/",
+        "files": [
+          {
+            "destination": "_variables.scss",
+            "format": "scss/variables"
+          }
+        ]
+      }
+    }
+  }
