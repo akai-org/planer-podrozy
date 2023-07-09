@@ -33,6 +33,11 @@
       "description": "Salmon dark"
     }
   },
+  "Communicates - error": {
+    "value": "#F04438",
+    "type": "color",
+    "description": "Communicates - error"
+  },
   "tokenSetOrder": {
     "0": {
       "value": "global",
