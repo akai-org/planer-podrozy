@@ -3,6 +3,7 @@
 .routePointsList-container {
 	display: flex;
 	flex-direction: row;
+
 	&__dots {
 		padding: 48px 2rem;
 		display: flex;
@@ -17,13 +18,16 @@
 		justify-content: space-between;
 	}
 }
+
 .listItem{
 	list-style: none;
 	padding-bottom: 32px;
 }
+
 .listItem:last-child {
 	padding-bottom: 0;
 }
+
 .dotMainItem, .dotItem, .flagItem  {
 	list-style: none;
 }

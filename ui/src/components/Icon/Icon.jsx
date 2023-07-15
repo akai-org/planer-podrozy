@@ -3,7 +3,13 @@ import PropTypes from 'prop-types'
 
 import { BiPlusCircle } from 'react-icons/bi'
 import { RiCompass3Line, RiDeleteBin2Fill } from 'react-icons/ri'
-import { MdOutlineLocationOn, MdOutlineNavigation, MdLocationOn, MdOutlineTimer, MdFlag } from 'react-icons/md'
+import {
+  MdOutlineLocationOn,
+  MdOutlineNavigation,
+  MdLocationOn,
+  MdOutlineTimer,
+  MdFlag
+} from 'react-icons/md'
 import { IoMdHeart } from 'react-icons/io'
 import { AiOutlineClockCircle } from 'react-icons/ai'
 import { BsCircleFill } from 'react-icons/bs'
@@ -25,12 +31,9 @@ export const iconNames = {
   dot: BsCircleFill
 }
 
-export function Icon({
-  name,
-  className,
-  color,
-  size
-} = {}) {
+export const iconColors = ['blue', 'navy', 'white', 'black', 'grey', 'red']
+
+export function Icon({ name, className, color, size } = {}) {
   const CustomTag = iconNames[name]
 
   return (
@@ -50,7 +53,7 @@ export function Icon({
 const iconsPropTypes = {
   name: PropTypes.oneOf(Object.keys(iconNames)).isRequired,
   className: PropTypes.string,
-  color: PropTypes.oneOf(['blue', 'navy', 'purple', 'orange', 'white', 'black', 'grey', 'red']),
+  color: PropTypes.oneOf(iconColors),
   size: PropTypes.oneOf(['smaller', 'small', 'medium', 'large', 'larger'])
 }
 
