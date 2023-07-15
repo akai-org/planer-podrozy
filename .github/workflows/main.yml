@@ -26,3 +26,7 @@ jobs:
       
       - name: Black Check
         uses: jpetrucciani/black-check@22.10.0
+      - name: Isort Check
+        uses: isort/isort-action@master
+      - name: Lint with Ruff
+        uses: jpetrucciani/ruff-check@main
