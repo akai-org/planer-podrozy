@@ -1,88 +1,4 @@
 {
-  "font": {
-    "base": {
-      "value": "Poppins",
-      "type": "fontFamilies",
-      "description": "Base font"
-    }
-  },
-  "typography": {
-    "h1": {
-      "value": {
-        "fontSize": "4rem",
-        "lineHeight": "4.76rem"
-      },
-      "type": "typography"
-    },
-    "h2": {
-      "value": {
-        "fontSize": "3rem",
-        "lineHeight": "3.563rem"
-      },
-      "type": "typography"
-    },
-    "h3": {
-      "value": {
-        "fontSize": "2.25rem",
-        "lineHeight": "2.688rem"
-      },
-      "type": "typography"
-    },
-    "h4": {
-      "value": {
-        "fontSize": "1.5rem",
-        "lineHeight": "1.75rem"
-      },
-      "type": "typography"
-    },
-    "p": {
-      "value": {
-        "fontSize": "1.25rem",
-        "lineHeight": "1.5rem"
-      },
-      "type": "typography"
-    },
-    "base": {
-      "value": {
-        "fontSize": "16px"
-      },
-      "type": "typography"
-    },
-    "button": {
-      "small": {
-        "value": {
-          "fontSize": "0.75rem"
-        },
-        "type": "typography"
-      },
-      "regular": {
-        "value": {
-          "fontSize": "1.125rem"
-        },
-        "type": "typography"
-      },
-      "wide": {
-        "value": {
-          "fontSize": "1.375rem"
-        },
-        "type": "typography"
-      }
-    },
-    "weight": {
-      "regular": {
-        "value": {
-          "fontWeight": 500
-        },
-        "type": "typography"
-      },
-      "bold": {
-        "value": {
-          "fontWeight": 700
-        },
-        "type": "typography"
-      }
-    }
-  },
   "borderRadius": {
     "md": {
       "value": "5px 5px 5px 5px",
@@ -251,7 +167,7 @@
   },
   "base": {
     "black": {
-      "value": "#141414",
+      "value": "#000000",
       "type": "color",
       "description": "Black base color"
     },
