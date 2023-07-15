@@ -167,7 +167,7 @@
   },
   "base": {
     "black": {
-      "value": "#141414",
+      "value": "#000000",
       "type": "color",
       "description": "Black base color"
     },
