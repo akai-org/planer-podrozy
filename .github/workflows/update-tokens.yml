@@ -1,5 +1,10 @@
-name: CI
-on: [push]
+name: Tokens Studio
+on:
+  pull_request:
+    branches:
+      - frontend
+    paths:
+      - 'ui/tokens/**'
 
 jobs:
   build:
@@ -14,6 +19,7 @@ jobs:
         uses: actions/setup-node@v2.4.0
       - run: npx token-transformer tokens/tokens.json tokens/transformed-tokens.json
       - run: npx npx style-dictionary build --config tokens/style-dictionary-config.json
+      - run: npm install --save-dev stylelint stylelint-config-prettier stylelint-config-standard stylelint-config-standard-scss stylelint-scss stylelint-order
       - run: npx stylelint src/assets/styles/abstracts/_variables.scss --fix
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
