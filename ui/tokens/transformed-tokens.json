@@ -1,5 +1,9 @@
 {
   "borderRadius": {
+    "sm": {
+      "value": "2px 2px 2px 2px",
+      "type": "borderRadius"
+    },
     "md": {
       "value": "5px 5px 5px 5px",
       "type": "borderRadius",
