@@ -7,7 +7,7 @@ import classNames from 'classnames'
 export function Loader({ className, variant }) {
   return (
     <div className={classNames(className, styles.loader, styles[variant])}>
-      <span></span>
+      <span className={variant}></span>
       <span></span>
       <span></span>
       <span></span>

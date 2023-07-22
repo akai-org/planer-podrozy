@@ -1,53 +1,28 @@
 @import '../../assets/styles/abstracts/variables';
 
-@mixin colour-animation-cos-tam($variant) {
-  $c1: null;
-  $c2: null;
-  $c3: null;
-  $c4: null;
-  $c5: null;
+$coloursPrimary:
+  $primary-p100,
+  $primary-p300,
+  $primary-p500,
+  $primary-p700,
+  $primary-p900;
 
-  @if $variant== '.primary' {
-    $c1: $primary-p100;
-    $c2: $primary-p300;
-    $c3: $primary-p500;
-    $c4: $primary-p700;
-    $c5: $primary-p900;
-  } @else if $variant== '.secondary' {
-    $c1: $alternative-a100;
-    $c2: $alternative-a300;
-    $c3: $alternative-a500;
-    $c4: $alternative-a700;
-    $c5: $alternative-a900;
-  }
+$coloursSecondary:
+  $alternative-a100,
+  $alternative-a300,
+  $alternative-a500,
+  $alternative-a700,
+  $alternative-a900;
 
-  span:nth-child(1) {
-    animation-delay: 0.1s;
-    background-color: $c1;
-  }
-  span:nth-child(2) {
-    animation-delay: 0.25s;
-    background-color: $c2;
-  }
-  span:nth-child(3) {
-    animation-delay: 0.4s;
-    background-color: $c3;
-  }
-  span:nth-child(4) {
-    animation-delay: 0.6s;
-    background-color: $c4;
-  }
-  span:nth-child(5) {
-    animation-delay: 0.8s;
-    background-color: $c5;
-  }
-}
+$delays: 0.1s, 0.25s, 0.4s, 0.6s, 0.8s;
 
-.primary {
-  @include colour-animation-cos-tam('.primary');
-}
-.secondary {
-  @include colour-animation-cos-tam('.secondary');
+@mixin loader-dots-colouring($colours, $delays) {
+  @for $i from 1 through 5 {
+    span:nth-child(#{$i}) {
+      background-color: nth($colours, $i);
+      animation-delay: nth($delays, $i);
+    }
+  }
 }
 
 .loader {
@@ -79,6 +54,13 @@
     100% {
       transform: translateY(0);
     }
+  }
+
+  &.primary {
+    @include loader-dots-colouring($coloursPrimary, $delays);
+  }
+  &.secondary {
+    @include loader-dots-colouring($coloursSecondary, $delays);
   }
 
   @media only screen and (min-width: 900px) {
