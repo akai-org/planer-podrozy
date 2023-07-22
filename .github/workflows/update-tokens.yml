@@ -1,0 +1,26 @@
+name: Tokens Studio
+on:
+  push:
+    branches:
+      - figma-tokens
+    paths:
+      - 'ui/tokens/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+        run:
+          working-directory: ./ui
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.4.0
+      - run: npx token-transformer tokens/tokens.json tokens/transformed-tokens.json
+      - run: npx npx style-dictionary build --config tokens/style-dictionary-config.json
+      - run: npm ci
+      - run: npx stylelint src/assets/styles/abstracts/_variables.scss --fix
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 'chore: update css tokens'
