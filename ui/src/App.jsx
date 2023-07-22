@@ -1,5 +1,6 @@
 import styles from './assets/styles/App.module.scss'
 import { RoutePointsList } from './components/RoutePointsList/RoutePointsList'
+import { Loader } from './components/Loader/Loader'
 
 export default function App() {
   const neededData = [
@@ -52,6 +53,7 @@ export default function App() {
   return (
     <div className={styles.app}>
       <RoutePointsList className="testowaLista" data={neededData} />
+      <Loader className="testoweKropki" variant="secondary" />
     </div>
   )
 }
