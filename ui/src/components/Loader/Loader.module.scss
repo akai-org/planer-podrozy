@@ -1,0 +1,105 @@
+@import '../../assets/styles/abstracts/variables';
+
+@mixin colour-animation-cos-tam($variant) {
+  $c1: null;
+  $c2: null;
+  $c3: null;
+  $c4: null;
+  $c5: null;
+
+  @if $variant== '.primary' {
+    $c1: $primary-p100;
+    $c2: $primary-p300;
+    $c3: $primary-p500;
+    $c4: $primary-p700;
+    $c5: $primary-p900;
+  } @else if $variant== '.secondary' {
+    $c1: $alternative-a100;
+    $c2: $alternative-a300;
+    $c3: $alternative-a500;
+    $c4: $alternative-a700;
+    $c5: $alternative-a900;
+  }
+
+  span:nth-child(1) {
+    animation-delay: 0.1s;
+    background-color: $c1;
+  }
+  span:nth-child(2) {
+    animation-delay: 0.25s;
+    background-color: $c2;
+  }
+  span:nth-child(3) {
+    animation-delay: 0.4s;
+    background-color: $c3;
+  }
+  span:nth-child(4) {
+    animation-delay: 0.6s;
+    background-color: $c4;
+  }
+  span:nth-child(5) {
+    animation-delay: 0.8s;
+    background-color: $c5;
+  }
+}
+
+.primary {
+  @include colour-animation-cos-tam('.primary');
+}
+.secondary {
+  @include colour-animation-cos-tam('.secondary');
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+
+  span {
+    height: 25px;
+    width: 25px;
+    margin-right: 10px;
+    border-radius: 50%;
+    animation: loading 1.1s linear infinite;
+  }
+
+  @keyframes loading {
+    0% {
+      transform: translateY(0);
+    }
+    25% {
+      transform: tborderranslateY(5px);
+    }
+    50% {
+      transform: translateY(-40px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @media only screen and (min-width: 900px) {
+    span {
+      height: 35px;
+      width: 35px;
+      margin-right: 15px;
+    }
+    @keyframes loading {
+      0% {
+        transform: translateY(0);
+      }
+      25% {
+        transform: translateY(5px);
+      }
+      50% {
+        transform: translateY(-60px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+  }
+}
