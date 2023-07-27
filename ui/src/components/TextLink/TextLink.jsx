@@ -28,7 +28,7 @@ TextLink.propTypes = {
   /** content that will be displayed in the link */
   text: PropTypes.string.isRequired,
   /** boolean that indicates whether the link is external or internal  */
-  external: PropTypes.bool,
+  external: PropTypes.bool
 }
 
 export default TextLink
