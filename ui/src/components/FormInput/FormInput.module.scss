@@ -1,4 +1,9 @@
+@use '../../assets/styles/abstracts/index' as *;
 
 .inputFragment {
     background: $alternative-a300;
+
+    &__label {
+        color: yellow;
+    }
 }

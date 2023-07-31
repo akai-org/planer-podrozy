@@ -1,4 +1,4 @@
-import FormInput from "./FormInput";
+import FormInput, {formInputVariants} from "./FormInput";
 
 export default {
     component: FormInput,
@@ -6,11 +6,13 @@ export default {
         componentSubtitle: 'A Form Input component.'
     },
     argTypes: {
-        formParameters: {
-            control: {type: 'string'},
+        inputType: {
+            control: {type: 'select'},
+            options: formInputVariants,
+            type: {required: false},
             table: {
                 category: 'props',
-                defaultValue: ''
+                defaultValue: formInputVariants['text']
             }
         }
     }

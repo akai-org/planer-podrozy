@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
-import './FormInput.module.scss';
+import styles from './FormInput.module.scss';
+import classNames from 'classnames'; 
 
-const FormInput = ({id, labelName, inputType, placeholder, required}) => {
+const FormInput = ({id, labelName, inputType, placeholder, required, className}) => {
     return (
-        <div className="inputFragment">
-            <label htmlFor={id} className="inputFragment__label">{labelName}</label>
+        <div className={classNames(styles['inputFragment'])}>
+            <label htmlFor={id}
+            className={classNames(styles['inputFragment__label'])}>{labelName}</label>
             <input id={id} type={inputType} placeholder={placeholder} required={required} />
         </div>
     )
