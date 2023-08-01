@@ -2,7 +2,7 @@ import styles from './LoginForm.module.scss'
 import Button from '../Button/Button'
 import { useRef, useState } from 'react'
 import { object, string } from 'yup'
-import logo from '../../assets/images/logo/svgs/logo_black.svg'
+import logo from '../../assets/images/logo/svgs/logo_white.svg'
 
 export default function LoginForm() {
   const [inputs, setInputs] = useState({
@@ -17,8 +17,8 @@ export default function LoginForm() {
   const loginForm = useRef(null)
 
   const schema = object({
-    emailOrNick: string().required("Pole 'email/nick' jest wymagane."),
-    password: string().required("Pole 'hasło' jest wymagane.")
+    emailOrNick: string().required('Pole "Email/nick" jest wymagane.'),
+    password: string().required('Pole "Hasło" jest wymagane.')
   })
 
   const handleChange = (event) => {
@@ -58,8 +58,9 @@ export default function LoginForm() {
       <header className={styles.viewHeader}>
         <img src={logo} alt="logo" />
         <div>
-          <span>Nie masz konta?</span>{' '}
+          <h3>Nie masz jeszcze konta?</h3>
           <Button
+            style={styles.button}
             onClick={() => {
               // TODO: change view to register
             }}
@@ -69,14 +70,16 @@ export default function LoginForm() {
         </div>
       </header>
       <form className={styles.form} ref={loginForm} onSubmit={handleSubmit}>
-        <header>Logowanie</header>
-
+        <header>
+          <h3>Zaloguj się do swojego konta</h3>
+        </header>
         <div className={styles.inputGroup}>
-          <label htmlFor="emailOrNick">email/nick</label>
+          <label htmlFor="emailOrNick">Email/nick</label>
           <input
             value={inputs.emailOrNick}
             type="text"
             id="emailOrNick"
+            placeholder="abc@gmail.com / Gigachad"
             name="emailOrNick"
             onChange={handleChange}
             className={errors.emailOrNick && styles.errorInput}
@@ -88,12 +91,13 @@ export default function LoginForm() {
         </div>
 
         <div className={styles.inputGroup}>
-          <label htmlFor="password">hasło</label>
+          <label htmlFor="password">Hasło</label>
           <input
             value={inputs.password}
-            type="text"
+            type="password"
             id="password"
             name="password"
+            placeholder="********"
             onChange={handleChange}
             className={errors.password && styles.errorInput}
           />
@@ -103,15 +107,17 @@ export default function LoginForm() {
         </div>
         <a className={styles.passwordReset} href="#">
           {/* TODO: change view to password reset */}
-          Zapomniałeś hasła?
+          Zapomniałem hasła
         </a>
         {loginError && (
-          <span className={styles.errorSpan}>
-            Nieprawidłowy email/nick lub hasło.
-          </span>
+          <span className={styles.errorSpan}>Nie udało się zalogować</span>
         )}
-
-        <Button onClick={() => loginForm.current.onSubmit}>Zaloguj się</Button>
+        <Button
+          style={styles.button}
+          onClick={() => loginForm.current.onSubmit}
+        >
+          Zaloguj się
+        </Button>
       </form>
     </div>
   )

@@ -1,36 +1,73 @@
 @use '../../assets/styles/abstracts' as *;
 
+$form-gap: 1.875rem;
+
 .view {
-  height: 100vh;
+  min-height: 100vh;
+  box-sizing: border-box;
   display: grid;
   grid-template-rows: auto 1fr;
   align-items: center;
+  background-color: #282828;
+  color: $base-white;
+  font-size: calc($font-size-p * 1px);
+  font-weight: 600;
+  padding: 1rem 2rem;
+  gap: 1.875rem;
 }
 
 .viewHeader {
+  grid-row: 1;
+  grid-column: 1;
   display: flex;
   justify-content: space-between;
-  padding: 1em;
-  img {
-    display: block;
-    max-width: 25%;
-  }
+  align-items: center;
 }
 
 .form {
-  padding: 1em;
-  border: solid;
+  grid-column: 1;
+  justify-self: center;
+  min-width: 34rem;
   display: grid;
+  gap: $form-gap;
   text-align: center;
-  margin-inline: auto;
+  background-color: $alternative-a900;
+  border: 6px solid $primary-p700;
+  border-radius: 0.625rem;
+  padding: 2.875rem 5.4375rem;
+
+  @media screen and (height > 45rem) {
+    grid-row: 1 / -1;
+  }
 }
 
-.error {
-  &Span {
-    color: red;
+h3 {
+  font-weight: 600;
+  font-size: calc($font-size-h3 * 1px);
+  .viewHeader & {
+    display: inline;
   }
-  &Input {
-    outline: solid red;
+  .form & {
+    margin-bottom: 1.875rem;
+  }
+}
+
+button.button {
+  background-color: $primary-p500;
+  color: $alternative-a900;
+  font-weight: 600;
+  border-radius: $border-radius-md;
+  padding: 0.5625rem 1.875rem;
+
+  .viewHeader & {
+    font-size: calc($font-size-button-md * 1px);
+    margin-left: 1.5rem;
+  }
+
+  .form & {
+    font-size: calc($font-size-button-lg * 1px);
+    justify-self: center;
+    min-width: calc(2 / 3 * 100%);
   }
 }
 
@@ -41,4 +78,32 @@
 .inputGroup,
 .passwordReset {
   text-align: left;
+}
+
+.error {
+  &Span {
+    color: $communicates-error;
+  }
+
+  &Input {
+    outline: solid $communicates-error;
+  }
+}
+
+.passwordReset {
+  margin-top: -$form-gap;
+}
+
+a {
+  text-decoration: none;
+  color: $base-white;
+}
+
+img {
+  max-width: 20rem;
+}
+
+input {
+  font-size: inherit;
+  padding: 0.8125rem 1.1875rem;
 }
