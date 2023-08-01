@@ -2,70 +2,75 @@
 
 
 .listitem-container{
-
 	max-width: 512px;
-	max-height: 128px;
+	height: 128px;
 	overflow: hidden;
-
 	border: none;
 	border-radius: 16px;
-
-	background-color: $color-bg;
-
+	background-color: $grayscale-g700;
 	display: grid;
 	grid-template-columns: auto min(1fr);
 	grid-template-rows: 1fr;
 
 	&:hover {
 		cursor: pointer;
+
 		.whenHoverBin {
-			color: $color-black;
+			color: $base-black;
 		}
+
 		.whenHoverHeart {
-			color: $color-secondary-medium;
+			color: $primary-p900;
 		}
+
 		.whenHoverTime {
-			color: $color-secondary-dark;
+			color: $alternative-a900;
 		}
 	}
 
 	&__image {
 		object-fit: cover;
-		max-height: 128px;
-		max-width: 128px;
+		width: 128px;
+		height: 128px;
 	}
+
 	&__box {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
+
 		.middle-text {
 			display: grid;
 			grid-template-columns: 1fr;
 			grid-template-rows: 1fr 1fr 1.5fr;
 			justify-content: space-between;
 			padding-left: 0.8em;
+
 			&__title {
-				color: $color-white;
+				color: $base-white;
 				font-weight: bold;
 				display: flex;
 				align-items: end;
-				font-size: $font-xs;
+				font-size: $font-size-p;
 			}
+
 			&__latlan {
-				color: $color-mid-tone;
+				color: $grayscale-g500;
 				display: flex;
 				align-items: start;
-				font-size: $font-xxs;
+				font-size: $font-size-button-sm;
 			}
+
 			&__time{
 				display: flex;
 				flex-direction: row;
 				justify-content: start;
 				align-items: center;
 				font-size: 22px;
+
 				&__value {
-					color: $color-white;
-					font-size: $font-xs;
+					color: $base-white;
+					font-size: $font-size-p;
 					font-weight: 600;
 					display: flex;
 					justify-content: center;
@@ -77,31 +82,35 @@
 		
 		.right-buttons {
 			height: 100%;
+			width: auto;
 			display: flex;
 			flex-direction: column;
+			justify-content: space-around;
 			align-content: center;
-			padding-right: 0.8em;
+			padding-right: 1em;
 		}
 	}
 }
 
-
-
 .listitem-container:hover {
-	background-color: $color-secondary;
+	background-color: $secondary-s500;
+
 	.middle-text{
 		&__title {
-			color: $color-black;
+			color: $base-black;
 		}
+
 		&__latlan {
-			color: $color-secondary-medium;
+			color: $secondary-s300;
 		}
+		
 		&__time {
 			.button-icon {
-				color: $color-secondary-dark;
+				color: $secondary-s900;
 			}
+
 			&__value {
-				color: $color-black;
+				color: $base-black;
 			}
 		}
 	}

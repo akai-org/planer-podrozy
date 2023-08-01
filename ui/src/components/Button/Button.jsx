@@ -34,7 +34,6 @@ const Button = ({ variant, onClick, children, style }) => {
 export const buttonVariants = [
   'blue',
   'dark-blue',
-  'purple',
   'light-red',
   'black',
   'white'
