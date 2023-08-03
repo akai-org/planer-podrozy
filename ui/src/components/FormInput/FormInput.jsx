@@ -7,7 +7,7 @@ const FormInput = ({id, labelName, inputType, placeholder, required, className})
         <div className={classNames(styles['inputFragment'])}>
             <label htmlFor={id}
             className={classNames(styles['inputFragment__label'])}>{labelName}</label>
-            <input id={id} type={inputType} placeholder={placeholder} required={required} />
+            <input className={classNames(styles['inputFragment__inputField'])} id={id} type={inputType} placeholder={placeholder} required={required} />
         </div>
     )
 }

@@ -23,11 +23,14 @@ $alternative-a900: #002a6b;
 $communicates-success: #17d87f;
 $communicates-warning: #f88f0a;
 $communicates-error: #f04438;
+// gray-scale
 $grayscale-g100: #ccc;
 $grayscale-g300: #999;
 $grayscale-g500: #666;
 $grayscale-g700: #333;
 $grayscale-g900: #171717;
+
+// fonts
 $font-size-button-sm: 12;
 $font-size-button-md: 18;
 $font-size-button-lg: 22;
@@ -37,13 +40,20 @@ $font-size-h3: 36;
 $font-size-h2: 48;
 $font-size-h1: 64;
 $font-size-base: 16;
+
+// color base
 $base-black: #141414;
 $base-white: #fcfcfc;
+
+// borders
 $border-width-md: 5;
+
+// font ligatures
 $line-height-h1: 76.16;
 $line-height-h2: 57.008;
 $line-height-h3: 43.008;
 $line-height-h4: 28;
 $line-height-base: 16;
 $line-height-p: 24;
+
 $token-set-order-0: global;

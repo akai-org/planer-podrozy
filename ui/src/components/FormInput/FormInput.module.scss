@@ -1,16 +1,21 @@
 @use '../../assets/styles/index.scss' as abstract;
+@use '../../assets/styles/abstracts/functions.scss' as fun;
 
 
 .inputFragment {
     @include abstract.flex-position(column, space-around, flex-start);
-
-    width: 300px;
-    height: 60px;
-    border:2px solid red;
     gap: 0.5rem;
+    border: 2px solid red;
+
 
     &__label{
-        @include abstract.font-size-config($font_size:abstract.$font-size-p ,$font_weight: 600);
+        @include abstract.font-size-config($font_size:abstract.$font-size-p ,$font_weight: 700);
+    }
 
+    &__inputField{
+        display: inline-block;
+        @include abstract.border_config($border_width:abstract.$border-width-md, $border_color: abstract.$alternative-a300);
+        width:100%;
+        padding: 1rem .5rem;
     }
 }
