@@ -1,9 +1,16 @@
-@use '../../assets/styles/abstracts/index' as *;
+@use '../../assets/styles/index.scss' as abstract;
+
 
 .inputFragment {
-    background: $alternative-a300;
+    @include abstract.flex-position(column, space-around, flex-start);
 
-    &__label {
-        color: yellow;
+    width: 300px;
+    height: 60px;
+    border:2px solid red;
+    gap: 0.5rem;
+
+    &__label{
+        @include abstract.font-size-config($font_size:abstract.$font-size-p ,$font_weight: 600);
+
     }
 }

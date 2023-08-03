@@ -1,0 +1,16 @@
+@use 'functions' as utils;
+
+
+@mixin flex-position($flex-dir: row, $justify: flex-start, $align-items: flex-start, $wrap: nowrap){
+    display: flex;
+    flex-direction: $flex-dir;
+    justify-content: $justify;
+    align-items: $align-items;
+    flex-wrap: wrap;
+}
+
+@mixin font-size-config($font_size, $line_height: normal, $font_weight: 500){
+    font-size: utils.px_to_rem_converter($font_size);
+    line-height: $line_height;
+    font-weight: $font_weight;
+}
