@@ -1,0 +1,63 @@
+@use '../../assets/styles/abstracts/variables' as *;
+
+.modal {
+  border-radius: 0.5rem;
+  border: 6px solid $grayscale-g700;
+  background-color: $alternative-a300;
+  box-shadow: -6px 6px 4px 0px rgba(0, 0, 0, 0.25);
+  color: $base-black;
+  text-align: center;
+  inset: 0;
+  max-width: max(30%, 25rem);
+  font-size: calc($font-size-p * 1px);
+  font-weight: 600;
+  box-sizing: border-box;
+  padding: 2.25rem;
+
+  p {
+    line-height: 1.5rem;
+    margin-block: 2rem;
+  }
+
+  h3 {
+    font-size: calc($font-size-h3 * 1px);
+    margin-block: 0;
+    font-weight: 600;
+  }
+
+  hr {
+    color: #171717;
+  }
+}
+
+button.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1.25rem;
+  padding: 5px;
+  outline: none;
+  border: 3px solid $alternative-a900;
+  border-radius: $border-radius-round;
+
+  background-color: $alternative-a900;
+
+  &:hover,
+  &:focus-visible {
+    background-color: $alternative-a500;
+  }
+
+  path {
+    stroke: $base-white;
+  }
+}
+
+button.confirm {
+  color: $alternative-a900;
+  font-family: Poppins;
+  font-size: calc($font-size-button-lg * 1px);
+  font-weight: 600;
+  border-radius: $border-radius-md;
+  padding: 0.5625rem 1.875rem;
+  min-width: 70%;
+}
