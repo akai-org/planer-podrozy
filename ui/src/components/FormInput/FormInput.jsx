@@ -39,7 +39,7 @@ FormInput.defaultProps = {
     id:"basicInput",
     labelName: 'Label',
     inputType: 'text',
-    placeholder: '',
+    placeholder: 'xyz',
     required: false
 }
 

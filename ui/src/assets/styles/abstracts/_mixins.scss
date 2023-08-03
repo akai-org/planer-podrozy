@@ -10,10 +10,11 @@
     flex-wrap: wrap;
 }
 
-@mixin font-size-config($font_size, $line_height: normal, $font_weight: 500){
+@mixin font-size-config($font_size, $line_height: normal, $font_weight: 500, $font_style: normal){
     font-size: utils.px_to_rem_converter($font_size);
-    line-height: $line_height;
     font-weight: $font_weight;
+    font-style: $font_style;;
+    line-height: $line_height;
 }
 
 @mixin border_config($border_width: vars.$border-width-md, $border_style: solid, $border_color, $border_radius: 0.3rem){
@@ -25,4 +26,11 @@
     -moz-border-radius: $border_radius;
     -ms-border-radius: $border_radius;
     -o-border-radius: $border_radius;
+}
+
+@mixin custom-outline($outline_width: 2,$outline_style: dashed, $outline_color: vars.$alternative-a100, $outline_offset: 5){
+    outline-style: $outline_style;
+    outline-width: utils.px_to_rem_converter($outline_width);
+    outline-offset: utils.px_to_rem_converter($outline_offset);
+    outline-color: $outline_color;
 }
