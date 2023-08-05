@@ -4,11 +4,14 @@ import classNames from 'classnames';
 
 const FormInput = ({id, labelName, inputType, placeholder, required, className, darkTheme}) => {
     const themePicker = darkTheme ? 'inputFragment--dark' : 'inputFragment';
+
+    const placeholderText = inputType !== 'password' ? placeholder : null;
+
     return (
         <div className={classNames(styles[themePicker])}>
             <label htmlFor={id}
             className={classNames(styles['inputFragment__label'])}>{labelName}</label>
-            <input className={classNames(styles['inputFragment__inputField'])} id={id} type={inputType} placeholder={placeholder} required={required} />
+            <input className={classNames(styles['inputFragment__inputField'])} id={id} type={inputType} placeholder={placeholderText} required={required} />
         </div>
     )
 }
@@ -43,7 +46,7 @@ FormInput.defaultProps = {
     inputType: 'text',
     placeholder: 'xyz',
     required: false,
-    darkTheme: true,
+    darkTheme: false,
 }
 
 export default FormInput;
