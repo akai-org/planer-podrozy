@@ -4,6 +4,7 @@
 
 .inputFragment, .inputFragment--dark {
     @include abstract.flex-position(column, space-around, flex-start);
+    position: relative;
     gap: 0.5rem;
     outline: none;
 
@@ -21,7 +22,7 @@
         width: 100%;
         padding: 1rem 1rem;
         transition: outline .1s linear;
-        font-size: utils.px_to_rem_converter(abstract.$font-size-base);
+        font-size: utils.px_to_rem_converter(abstract.$font-size-h4);
     }
 
 
@@ -40,8 +41,18 @@
     input[type=range] {
        @include abstract.custom-range-input-thumb;
     }
+
+    // radio support
+    input[type=radio]{
+        position: absolute;
+        transform: translateX(70px);
+        width: utils.px_to_rem_converter(20);
+        height: utils.px_to_rem_converter(20);
+    }
 }
 
+
+// dark theme for input
 .inputFragment--dark {
     .inputFragment__label {
         color: abstract.$base-black;
