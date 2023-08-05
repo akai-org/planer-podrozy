@@ -2,9 +2,10 @@ import PropTypes from 'prop-types';
 import styles from './FormInput.module.scss';
 import classNames from 'classnames'; 
 
-const FormInput = ({id, labelName, inputType, placeholder, required, className}) => {
+const FormInput = ({id, labelName, inputType, placeholder, required, className, darkTheme}) => {
+    const themePicker = darkTheme ? 'inputFragment--dark' : 'inputFragment';
     return (
-        <div className={classNames(styles['inputFragment'])}>
+        <div className={classNames(styles[themePicker])}>
             <label htmlFor={id}
             className={classNames(styles['inputFragment__label'])}>{labelName}</label>
             <input className={classNames(styles['inputFragment__inputField'])} id={id} type={inputType} placeholder={placeholder} required={required} />
@@ -32,7 +33,8 @@ FormInput.propTypes = {
     labelName: PropTypes.string.isRequired,
     inputType: PropTypes.oneOf(formInputVariants),
     placeholder: PropTypes.string,
-    required: PropTypes.bool
+    required: PropTypes.bool,
+    darkTheme: PropTypes.bool,
 }
 
 FormInput.defaultProps = {
@@ -40,7 +42,8 @@ FormInput.defaultProps = {
     labelName: 'Label',
     inputType: 'text',
     placeholder: 'xyz',
-    required: false
+    required: false,
+    darkTheme: true,
 }
 
 export default FormInput;

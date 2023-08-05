@@ -2,7 +2,7 @@
 @use '../../assets/styles/abstracts/functions.scss' as utils;
 
 
-.inputFragment {
+.inputFragment, .inputFragment--dark {
     @include abstract.flex-position(column, space-around, flex-start);
     gap: 0.5rem;
     outline: none;
@@ -15,16 +15,16 @@
     }
 
     &__inputField{
-        display: inline-block;
         @include abstract.border_config($border_width:
         abstract.$border-width-md,$border_color: abstract.$alternative-a300);
-        width:100%;
+        display: inline-block;
+        width: 100%;
         padding: 1rem 1rem;
-        transition: outline .3s linear;
+        transition: outline .1s linear;
 
-        &::placeholder{
+        &::placeholder {
             @include abstract.font-size-config($font_size: abstract.$font-size-p, $font_weight: 400);
-            color: abstract.$grayscale-g300
+            color: abstract.$grayscale-g300;
         }
 
         &:focus, &:focus-visible{
@@ -33,3 +33,21 @@
     }
 }
 
+.inputFragment--dark {
+    .inputFragment__label {
+        color: abstract.$base-black;
+    }
+
+    .inputFragment__inputField{
+        @include abstract.border_config($border_color: abstract.$alternative-a700);
+
+        &::placeholder{
+            @include abstract.font-size-config($font_size: abstract.$font-size-p, $font_weight: 400);
+            color: abstract.$grayscale-g500
+        }
+
+        &:focus, &:focus-visible{
+            @include abstract.custom-outline($outline_color: abstract.$alternative-a300);
+        }
+    }
+}
