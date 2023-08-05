@@ -43,7 +43,7 @@
     }
 
     // radio support
-    input[type=radio]{
+    input[type=radio], input[type=checkbox]{
         position: absolute;
         transform: translateX(70px);
         width: utils.px_to_rem_converter(20);
