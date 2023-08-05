@@ -17,7 +17,7 @@
     line-height: $line_height;
 }
 
-@mixin border_config($border_width: vars.$border-width-md, $border_style: solid, $border_color, $border_radius: 0.3rem){
+@mixin border-config($border_width: vars.$border-width-md, $border_style: solid, $border_color, $border_radius: 0.3rem){
     border-width: utils.px_to_rem_converter($border_width);
     border-style: $border_style;
     border-color: $border_color;
@@ -33,4 +33,41 @@
     outline-width: utils.px_to_rem_converter($outline_width);
     outline-offset: utils.px_to_rem_converter($outline_offset);
     outline-color: $outline_color;
+}
+
+@mixin custom-range-input-thumb{
+    width: 20%;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+
+    &::-webkit-slider-runnable-track {
+        width: inherit;
+        cursor: pointer;
+        background: vars.$alternative-a100;
+        border-radius: utils.px_to_rem_converter(10);
+    }
+
+    &::-webkit-slider-thumb  {
+        width: utils.px_to_rem_converter(15);
+        height: utils.px_to_rem_converter(15);
+        border-radius: 50%;
+    }
+
+    &:focus::-webkit-slider-runnable-track {
+        background-color: vars.$alternative-a700;
+    }
+
+    &::-moz-range-track{
+        width: inherit;
+        cursor: pointer;
+        background: vars.$alternative-a100;
+        border-radius: utils.px_to_rem_converter(10);
+    }
+
+    &::-moz-range-thumb{
+        width: utils.px_to_rem_converter(15);
+        height: utils.px_to_rem_converter(15);
+        border-radius: 50%;
+    }
 }
