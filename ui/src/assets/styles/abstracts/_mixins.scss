@@ -1,73 +1,92 @@
 @use 'functions' as utils;
 @use 'variables' as vars;
 
-
-@mixin flex-position($flex-dir: row, $justify: flex-start, $align-items: flex-start, $wrap: nowrap){
-    display: flex;
-    flex-direction: $flex-dir;
-    justify-content: $justify;
-    align-items: $align-items;
-    flex-wrap: wrap;
+@mixin flex-position(
+  $flex-dir: row,
+  $justify: flex-start,
+  $align-items: flex-start,
+  $wrap: nowrap
+) {
+  display: flex;
+  flex-direction: $flex-dir;
+  justify-content: $justify;
+  align-items: $align-items;
+  flex-wrap: wrap;
 }
 
-@mixin font-size-config($font_size, $line_height: normal, $font_weight: 500, $font_style: normal){
-    font-size: utils.px_to_rem_converter($font_size);
-    font-weight: $font_weight;
-    font-style: $font_style;;
-    line-height: $line_height;
+@mixin font-size-config(
+  $font_size,
+  $line_height: normal,
+  $font_weight: 500,
+  $font_style: normal
+) {
+  font-size: utils.px-to-rem-converter($font_size);
+  font-weight: $font_weight;
+  font-style: $font_style;
+  line-height: $line_height;
 }
 
-@mixin border-config($border_width: vars.$border-width-md, $border_style: solid, $border_color, $border_radius: 0.3rem){
-    border-width: utils.px_to_rem_converter($border_width);
-    border-style: $border_style;
-    border-color: $border_color;
-    border-radius: $border_radius;
-    -webkit-border-radius: $border_radius;
-    -moz-border-radius: $border_radius;
-    -ms-border-radius: $border_radius;
-    -o-border-radius: $border_radius;
+@mixin border-config(
+  $border_width: vars.$border-width-md,
+  $border_style: solid,
+  $border_color,
+  $border_radius: 0.3rem
+) {
+  border-width: utils.px-to-rem-converter($border_width);
+  border-style: $border_style;
+  border-color: $border_color;
+  border-radius: $border_radius;
+  -webkit-border-radius: $border_radius;
+  -moz-border-radius: $border_radius;
+  -ms-border-radius: $border_radius;
+  -o-border-radius: $border_radius;
 }
 
-@mixin custom-outline($outline_width: 2,$outline_style: dashed, $outline_color: vars.$alternative-a100, $outline_offset: 5){
-    outline-style: $outline_style;
-    outline-width: utils.px_to_rem_converter($outline_width);
-    outline-offset: utils.px_to_rem_converter($outline_offset);
-    outline-color: $outline_color;
+@mixin custom-outline(
+  $outline_width: 2,
+  $outline_style: dashed,
+  $outline_color: vars.$alternative-a100,
+  $outline_offset: 5
+) {
+  outline-style: $outline_style;
+  outline-width: utils.px-to-rem-converter($outline_width);
+  outline-offset: utils.px-to-rem-converter($outline_offset);
+  outline-color: $outline_color;
 }
 
-@mixin custom-range-input-thumb{
-    width: 20%;
-    background-color: transparent;
-    border: none;
-    padding: 0;
+@mixin custom-range-input-thumb {
+  width: 20%;
+  background-color: transparent;
+  border: none;
+  padding: 0;
 
-    &::-webkit-slider-runnable-track {
-        width: inherit;
-        cursor: pointer;
-        background: vars.$alternative-a100;
-        border-radius: utils.px_to_rem_converter(10);
-    }
+  &::-webkit-slider-runnable-track {
+    width: inherit;
+    cursor: pointer;
+    background: vars.$alternative-a100;
+    border-radius: utils.px-to-rem-converter(10);
+  }
 
-    &::-webkit-slider-thumb  {
-        width: utils.px_to_rem_converter(15);
-        height: utils.px_to_rem_converter(15);
-        border-radius: 50%;
-    }
+  &::-webkit-slider-thumb {
+    width: utils.px-to-rem-converter(15);
+    height: utils.px-to-rem-converter(15);
+    border-radius: 50%;
+  }
 
-    &:focus::-webkit-slider-runnable-track {
-        background-color: vars.$alternative-a700;
-    }
+  &:focus::-webkit-slider-runnable-track {
+    background-color: vars.$alternative-a700;
+  }
 
-    &::-moz-range-track{
-        width: inherit;
-        cursor: pointer;
-        background: vars.$alternative-a100;
-        border-radius: utils.px_to_rem_converter(10);
-    }
+  &::-moz-range-track {
+    width: inherit;
+    cursor: pointer;
+    background: vars.$alternative-a100;
+    border-radius: utils.px-to-rem-converter(10);
+  }
 
-    &::-moz-range-thumb{
-        width: utils.px_to_rem_converter(15);
-        height: utils.px_to_rem_converter(15);
-        border-radius: 50%;
-    }
+  &::-moz-range-thumb {
+    width: utils.px-to-rem-converter(15);
+    height: utils.px-to-rem-converter(15);
+    border-radius: 50%;
+  }
 }

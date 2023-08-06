@@ -14,7 +14,7 @@
         @include abstract.font-size-config($font_size:abstract.$font-size-p ,$font_weight: 600);
 
         color: abstract.$base-white;
-        margin-left: utils.px_to_rem_converter(5);
+        margin-left: utils.px-to-rem-converter(5);
     }
 
     &__input-field {
@@ -25,7 +25,7 @@
         width: 100%;
         padding: 1rem;
         transition: outline .1s linear;
-        font-size: utils.px_to_rem_converter(abstract.$font-size-h4);
+        font-size: utils.px-to-rem-converter(abstract.$font-size-h4);
     }
 
 
@@ -50,8 +50,8 @@
     input[type=radio], input[type=checkbox]{
         position: absolute;
         transform: translateX(70px);
-        width: utils.px_to_rem_converter(20);
-        height: utils.px_to_rem_converter(20);
+        width: utils.px-to-rem-converter(20);
+        height: utils.px-to-rem-converter(20);
     }
 }
 
