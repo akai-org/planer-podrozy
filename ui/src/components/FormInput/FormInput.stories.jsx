@@ -12,7 +12,7 @@ export default {
       type: { required: false },
       table: {
         category: 'props',
-        defaultValue: formInputVariants['text']
+        defaultValue: formInputVariants.text
       }
     }
   }
