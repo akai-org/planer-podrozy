@@ -2,8 +2,9 @@
 @use '../../assets/styles/abstracts/functions.scss' as utils;
 
 
-.inputFragment, .inputFragment--dark {
+.input-fragment, .input-fragment--dark {
     @include abstract.flex-position(column, space-around, flex-start);
+
     position: relative;
     gap: 0.5rem;
     outline: none;
@@ -11,24 +12,27 @@
 
     &__label {
         @include abstract.font-size-config($font_size:abstract.$font-size-p ,$font_weight: 600);
+
         color: abstract.$base-white;
         margin-left: utils.px_to_rem_converter(5);
     }
 
-    &__inputField {
+    &__input-field {
         @include abstract.border-config($border_width:
         abstract.$border-width-md,$border_color: abstract.$alternative-a300);
+
         display: inline-block;
         width: 100%;
-        padding: 1rem 1rem;
+        padding: 1rem;
         transition: outline .1s linear;
         font-size: utils.px_to_rem_converter(abstract.$font-size-h4);
     }
 
 
-    &__label, &__inputField {
+    &__label, &__input-field {
         &::placeholder {
             @include abstract.font-size-config($font_size: abstract.$font-size-p, $font_weight: 400);
+
             color: abstract.$grayscale-g300;
         }
 
@@ -53,16 +57,17 @@
 
 
 // dark theme for input
-.inputFragment--dark {
-    .inputFragment__label {
+.input-fragment--dark {
+    .input-fragment__label {
         color: abstract.$base-black;
     }
 
-    .inputFragment__inputField{
+    .input-fragment__input-field{
         @include abstract.border-config($border_color: abstract.$alternative-a700);
 
         &::placeholder{
             @include abstract.font-size-config($font_size: abstract.$font-size-p, $font_weight: 400);
+
             color: abstract.$grayscale-g500
         }
 

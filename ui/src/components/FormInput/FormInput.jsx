@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types';
-import styles from './FormInput.module.scss';
-import classNames from 'classnames';
+import PropTypes from 'prop-types'
+import styles from './FormInput.module.scss'
+import classNames from 'classnames'
 
 /**
  * ### example: <br/>
@@ -15,7 +15,7 @@ import classNames from 'classnames';
  *  required
  *  className
  *  />
- *    
+ *
  *
  *
  *
@@ -29,51 +29,68 @@ import classNames from 'classnames';
  * - darkTheme - additional modificatior for class to change some rules for dark theme - local implementation<br/> isRequired: true<br/>default value: false
  */
 
-const FormInput = ({id, labelName, inputType, placeholder, required, darkTheme}) => {
-    const themePicker = darkTheme ? 'inputFragment--dark' : 'inputFragment';
+const FormInput = ({
+  id,
+  labelName,
+  inputType,
+  placeholder,
+  required,
+  darkTheme
+}) => {
+  const themePicker = darkTheme ? 'input-fragment--dark' : 'input-fragment'
 
-    const placeholderText = inputType !== 'password' ? placeholder : null;
+  const placeholderText = inputType !== 'password' ? placeholder : null
 
-    return (
-        <div className={classNames(styles[themePicker])}>
-            <label htmlFor={id}
-            className={classNames(styles['inputFragment__label'])}>{labelName}</label>
-            <input className={classNames(styles['inputFragment__inputField'])} id={id} type={inputType} placeholder={placeholderText} required={required} />
-        </div>
-    )
+  return (
+    <div className={classNames(styles[themePicker])}>
+      <label
+        htmlFor={id}
+        className={classNames(styles['input-fragment__label'])}
+      >
+        {labelName}
+      </label>
+      <input
+        className={classNames(styles['input-fragment__input-field'])}
+        id={id}
+        type={inputType}
+        placeholder={placeholderText}
+        required={required}
+      />
+    </div>
+  )
 }
 
 export const formInputVariants = [
-    'text',
-    'email',
-    'password',
-    'textArea',
-    'submit',
-    'checkbox',
-    'date',
-    'file',
-    'radio',
-    'range',
-    'search',
-    'time'
+  'text',
+  'email',
+  'password',
+  'textArea',
+  'submit',
+  'checkbox',
+  'date',
+  'file',
+  'radio',
+  'range',
+  'search',
+  'time'
 ]
 
 FormInput.propTypes = {
-    id: PropTypes.string.isRequired,
-    labelName: PropTypes.string.isRequired,
-    inputType: PropTypes.oneOf(formInputVariants),
-    placeholder: PropTypes.string,
-    required: PropTypes.bool,
-    darkTheme: PropTypes.bool,
+  id: PropTypes.string.isRequired,
+  labelName: PropTypes.string.isRequired,
+  inputType: PropTypes.oneOf(formInputVariants),
+  placeholder: PropTypes.string,
+  required: PropTypes.bool,
+  darkTheme: PropTypes.bool
 }
 
 FormInput.defaultProps = {
-    id:"basicInput",
-    labelName: 'Label',
-    inputType: 'text',
-    placeholder: 'placeholder',
-    required: true,
-    darkTheme: false,
+  id: 'basicInput',
+  labelName: 'Label',
+  inputType: 'text',
+  placeholder: 'placeholder',
+  required: true,
+  darkTheme: false
 }
 
-export default FormInput;
+export default FormInput
