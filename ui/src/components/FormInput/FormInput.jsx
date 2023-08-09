@@ -35,6 +35,7 @@ const FormInput = ({
   inputType,
   placeholder,
   required,
+  className,
   darkTheme
 }) => {
   const themePicker = darkTheme ? 'input-fragment--dark' : 'input-fragment'
@@ -42,15 +43,12 @@ const FormInput = ({
   const placeholderText = inputType !== 'password' ? placeholder : null
 
   return (
-    <div className={classNames(styles[themePicker])}>
-      <label
-        htmlFor={id}
-        className={classNames(styles['input-fragment__label'])}
-      >
+    <div className={classNames(styles[themePicker], className)}>
+      <label htmlFor={id} className={styles['input-fragment__label']}>
         {labelName}
       </label>
       <input
-        className={classNames(styles['input-fragment__input-field'])}
+        className={styles['input-fragment__input-field']}
         id={id}
         type={inputType}
         placeholder={placeholderText}
@@ -60,20 +58,7 @@ const FormInput = ({
   )
 }
 
-export const formInputVariants = [
-  'text',
-  'email',
-  'password',
-  'textArea',
-  'submit',
-  'checkbox',
-  'date',
-  'file',
-  'radio',
-  'range',
-  'search',
-  'time'
-]
+export const formInputVariants = ['text', 'email', 'password']
 
 FormInput.propTypes = {
   id: PropTypes.string.isRequired,
@@ -81,6 +66,7 @@ FormInput.propTypes = {
   inputType: PropTypes.oneOf(formInputVariants),
   placeholder: PropTypes.string,
   required: PropTypes.bool,
+  className: PropTypes.string,
   darkTheme: PropTypes.bool
 }
 
@@ -90,6 +76,7 @@ FormInput.defaultProps = {
   inputType: 'text',
   placeholder: 'placeholder',
   required: true,
+  className: '',
   darkTheme: false
 }
 
