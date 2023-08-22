@@ -2,7 +2,7 @@ import styles from './LoginForm.module.scss'
 import Button from '../Button/Button'
 import { useRef, useState } from 'react'
 import { object, string } from 'yup'
-import logo from '../../assets/images/logo/svgs/logo_white.svg'
+import logo from '../../assets/images/logo/svgs/logo_accent.svg'
 
 export default function LoginForm() {
   const [inputs, setInputs] = useState({
@@ -56,7 +56,7 @@ export default function LoginForm() {
   return (
     <div className={styles.view}>
       <header className={styles.viewHeader}>
-        <img src={logo} alt="logo" />
+        <img src={logo} alt="logo" className={styles.logo} />
         <div>
           <h3>Nie masz jeszcze konta?</h3>
           <Button
