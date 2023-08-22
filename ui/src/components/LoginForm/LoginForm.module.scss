@@ -1,6 +1,7 @@
 @use '../../assets/styles/abstracts' as *;
 
 $form-gap: 1.875rem;
+$password-reset-offset: -$form-gap;
 
 .view {
   min-height: 100vh;
@@ -32,16 +33,16 @@ $form-gap: 1.875rem;
   gap: $form-gap;
   text-align: center;
   background-color: $alternative-a900;
-  border: 6px solid $primary-p700;
+  border: 0.375rem solid $primary-p700;
   border-radius: 0.625rem;
   padding: 2.875rem 5.4375rem;
 
-  @media screen and (height > 45rem) {
+  @media screen and (height > 720px) {
     grid-row: 1 / -1;
   }
 }
 
-h3 {
+.header__level3 {
   font-weight: 600;
   font-size: calc($font-size-h3 * 1px);
   .viewHeader & {
@@ -59,12 +60,12 @@ button.button {
   border-radius: $border-radius-md;
   padding: 0.5625rem 1.875rem;
 
-  .viewHeader & {
+  &.registerButton {
     font-size: calc($font-size-button-md * 1px);
     margin-left: 1.5rem;
   }
 
-  .form & {
+  &.submitButton {
     font-size: calc($font-size-button-lg * 1px);
     justify-self: center;
     min-width: calc(2 / 3 * 100%);
@@ -73,6 +74,11 @@ button.button {
 
 .inputGroup {
   display: grid;
+
+  input {
+    font-size: inherit;
+    padding: 0.8125rem 1.1875rem;
+  }
 }
 
 .inputGroup,
@@ -91,19 +97,11 @@ button.button {
 }
 
 .passwordReset {
-  margin-top: -$form-gap;
-}
-
-a {
+  margin-top: $password-reset-offset;
   text-decoration: none;
   color: $base-white;
 }
 
 .logo {
   max-width: 20rem;
-}
-
-input {
-  font-size: inherit;
-  padding: 0.8125rem 1.1875rem;
 }

@@ -64,9 +64,9 @@ export default function LoginForm() {
       <header className={styles.viewHeader}>
         <img src={logo} alt="logo" className={styles.logo} />
         <div>
-          <h3>Nie masz jeszcze konta?</h3>
+          <h3 className={styles.header__level3}>Nie masz jeszcze konta?</h3>
           <Button
-            style={styles.button}
+            style={classNames(styles.button, styles.registerButton)}
             onClick={() => {
               // TODO: change view to register
             }}
@@ -76,9 +76,7 @@ export default function LoginForm() {
         </div>
       </header>
       <form className={styles.form} ref={loginForm} onSubmit={handleSubmit}>
-        <header>
-          <h3>Zaloguj się do swojego konta</h3>
-        </header>
+        <h3 className={styles.header__level3}>Zaloguj się do swojego konta</h3>
         <div className={styles.inputGroup}>
           <label htmlFor="emailOrNick">Email/nick</label>
           <input
