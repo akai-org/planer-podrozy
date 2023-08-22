@@ -2,9 +2,9 @@
 
 .modal {
   border-radius: 0.5rem;
-  border: 6px solid $grayscale-g700;
+  border: 0.375rem solid $grayscale-g700;
   background-color: $alternative-a300;
-  box-shadow: -6px 6px 4px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: -0.375rem 0.375rem 0.25rem 0px rgba(0, 0, 0, 0.25);
   color: $base-black;
   text-align: center;
   inset: 0;
@@ -35,9 +35,9 @@ button.close {
   top: 0;
   right: 0;
   margin: 1.25rem;
-  padding: 5px;
+  padding: 0.3125rem;
   outline: none;
-  border: 3px solid $alternative-a900;
+  border: 0.1875rem solid $alternative-a900;
   border-radius: $border-radius-round;
 
   background-color: $alternative-a900;

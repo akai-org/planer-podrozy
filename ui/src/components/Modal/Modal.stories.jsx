@@ -6,7 +6,20 @@ export default {
   component: Modal,
 
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
+    componentSubtitle: 'A modal component using dialog element.'
+  },
+
+  argTypes: {
+    variant: {
+      control: false
+    },
+    open: {
+      control: false
+    },
+    onClose: {
+      control: false
+    }
   }
 }
 
@@ -15,6 +28,18 @@ const Template = (args) => {
 
   return (
     <>
+      <button
+        style={{
+          position: 'absolute',
+          top: '5rem',
+          left: '5rem'
+        }}
+        onClick={() => {
+          console.log('clicked')
+        }}
+      >
+        try clicking me
+      </button>
       <button
         onClick={() => {
           setOpen(true)
