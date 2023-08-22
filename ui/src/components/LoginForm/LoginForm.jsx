@@ -6,10 +6,8 @@ import logo from '../../assets/images/logo/svgs/logo_accent.svg'
 import classNames from 'classnames'
 
 export default function LoginForm() {
-  const [inputs, setInputs] = useState({
-    emailOrNick: '',
-    password: ''
-  })
+  const emailOrNickInput = useRef(null)
+  const passwordInput = useRef(null)
 
   const [errors, setErrors] = useState({})
 
@@ -23,8 +21,7 @@ export default function LoginForm() {
   })
 
   const handleChange = (event) => {
-    const { name, value } = event.target
-    setInputs((prev) => ({ ...prev, [name]: value }))
+    const { name } = event.target
     if (errors[name]) {
       setErrors((prev) => {
         const newErrors = { ...prev }
@@ -38,7 +35,15 @@ export default function LoginForm() {
   const handleSubmit = (event) => {
     event.preventDefault()
     schema
-      .validate(inputs, { abortEarly: false })
+      .validate(
+        {
+          emailOrNick: emailOrNickInput.current.value,
+          password: passwordInput.current.value
+        },
+        {
+          abortEarly: false
+        }
+      )
       .then(() => {
         console.log('ok')
         // TODO: send data to server
@@ -77,13 +82,13 @@ export default function LoginForm() {
         <div className={styles.inputGroup}>
           <label htmlFor="emailOrNick">Email/nick</label>
           <input
-            value={inputs.emailOrNick}
             type="text"
             id="emailOrNick"
             placeholder="abc@gmail.com / Gigachad"
             name="emailOrNick"
             onChange={handleChange}
             className={errors.emailOrNick && styles.errorInput}
+            ref={emailOrNickInput}
             autoFocus
           />
           {errors.emailOrNick && (
@@ -94,13 +99,13 @@ export default function LoginForm() {
         <div className={styles.inputGroup}>
           <label htmlFor="password">Hasło</label>
           <input
-            value={inputs.password}
             type="password"
             id="password"
-            name="password"
             placeholder="********"
+            name="password"
             onChange={handleChange}
             className={errors.password && styles.errorInput}
+            ref={passwordInput}
           />
           {errors.password && (
             <span className={styles.errorSpan}>{errors.password}</span>
