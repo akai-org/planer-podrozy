@@ -3,6 +3,7 @@ import Button from '../Button/Button'
 import { useRef, useState } from 'react'
 import { object, string } from 'yup'
 import logo from '../../assets/images/logo/svgs/logo_accent.svg'
+import classNames from 'classnames'
 
 export default function LoginForm() {
   const [inputs, setInputs] = useState({
@@ -112,10 +113,7 @@ export default function LoginForm() {
         {loginError && (
           <span className={styles.errorSpan}>Nie udało się zalogować</span>
         )}
-        <Button
-          style={styles.button}
-          onClick={() => loginForm.current.onSubmit}
-        >
+        <Button style={classNames(styles.button, styles.submitButton)}>
           Zaloguj się
         </Button>
       </form>

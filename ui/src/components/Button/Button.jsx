@@ -43,7 +43,7 @@ Button.propTypes = {
   /** color variant */
   variant: PropTypes.oneOf(buttonVariants),
   /** event that will be triggered when the button is clicked */
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   /** content that will be displayed in the button */
   children: PropTypes.string.isRequired,
   /** additional css styles */
