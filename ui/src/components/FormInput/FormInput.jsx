@@ -54,7 +54,7 @@ const FormInput = ({
         placeholder={placeholderText}
         required={required}
       />
-</div>
+    </div>
   )
 }
 
