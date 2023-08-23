@@ -11,7 +11,8 @@
     "prettier": "prettier --check **/*.jsx **/*.js",
     "stylelint": "stylelint **/*.scss",
     "storybook": "cross-env NODE_OPTIONS=--openssl-legacy-provider start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "prepare": "cd .. && husky install .husky"
   },
   "dependencies": {
     "classnames": "^2.3.2",
@@ -54,5 +55,10 @@
     "stylelint-order": "^5.0.0",
     "stylelint-scss": "^4.1.0",
     "vite": "^4.1.4"
+  },
+  "lint-staged": {
+    "./src/**/*.{js,jsx}": "eslint --fix",
+    "./src/**/*.{jsx,js,scss}": "prettier --write",
+    "./src/**/*.{scss}": "stylelint --fix"
   }
 }
