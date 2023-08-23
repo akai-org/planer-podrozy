@@ -1,5 +1,10 @@
 @use '../abstracts/' as *;
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   font-family: Poppins, sans-serif;
@@ -10,7 +15,7 @@ h1 {
 }
 
 h2 {
-  font-size: $font-size-h2
+  font-size: $font-size-h2;
 }
 
 h3 {
