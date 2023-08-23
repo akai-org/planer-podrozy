@@ -53,7 +53,7 @@ const FormInput = ({
         type={inputType}
         placeholder={placeholderText}
         required={required}
-      /></div>
+  /></div>
   )
 }
 
