@@ -5,15 +5,6 @@ export default {
     parameters: {
         componentSubtitle: 'A Radio Button component.'
     },
-    argTypes: {
-        inverted: {
-            control: {type: 'boolean'},
-            table: {
-                category: 'layout type',
-                default: false
-            }
-        }
-    }
 }
 
 const Template = (args) => <RadioButton {...args} />

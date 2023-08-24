@@ -2,16 +2,26 @@
 @use '../../assets/styles/abstracts/functions.scss' as utils;
 
 
-.radioButton{
-    @include abstract.flex-position;
+.radioButton {
+    @include abstract.flex-position($align-items: center);
     font-size: utils.px-to-rem-converter(abstract.$font-size-p);
     line-height: 24px;
+    width: fit-content;
+    // in figma cannot measure gap between input and label
+    gap: utils.px-to-rem-converter(10);
 
     &__value {
-        display: flex;
         height: utils.px-to-rem-converter(20);
         width: utils.px-to-rem-converter(20);
         margin: 0;
-        accent-color: abstract.$alternative-a700
+        
+        &:checked{
+            accent-color: abstract.$alternative-a700;
+        }
+    }
+
+    &--inverted {
+        flex-direction: row-reverse;
     }
 }
+
