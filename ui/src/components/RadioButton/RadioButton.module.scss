@@ -1,0 +1,17 @@
+@use '../../assets/styles/index.scss' as abstract;
+@use '../../assets/styles/abstracts/functions.scss' as utils;
+
+
+.radioButton{
+    @include abstract.flex-position;
+    font-size: utils.px-to-rem-converter(abstract.$font-size-p);
+    line-height: 24px;
+
+    &__value {
+        display: flex;
+        height: utils.px-to-rem-converter(20);
+        width: utils.px-to-rem-converter(20);
+        margin: 0;
+        accent-color: abstract.$alternative-a700
+    }
+}
