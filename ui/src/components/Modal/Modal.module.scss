@@ -1,6 +1,8 @@
 @use '../../assets/styles/abstracts/variables' as *;
 
 .modal {
+  position: fixed;
+  z-index: 1;
   border-radius: 0.5rem;
   border: 0.375rem solid $grayscale-g700;
   background-color: $alternative-a300;

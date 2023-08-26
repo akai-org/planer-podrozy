@@ -3,6 +3,7 @@ import styles from './Modal.module.scss'
 import PropTypes from 'prop-types'
 import { ButtonIcon } from '../ButtonIcon/ButtonIcon'
 import Button from '../Button/Button'
+import { createPortal } from 'react-dom'
 
 /**
  * ### example:
@@ -68,29 +69,34 @@ function Modal({ title, children, modal, variant, open, onClose }) {
   }, [open])
 
   return (
-    <dialog
-      className={styles.modal}
-      ref={dialog}
-      onCancel={onCancel}
-      onClose={close}
-    >
-      <h3>{title}</h3>
-      <hr />
-      <p>{children}</p>
-      <form method="dialog">
-        <ButtonIcon
-          name={'close'}
-          className={styles.close}
-          size={'small'}
-          color={'white'}
-        />
-        {showConfirm && (
-          <Button style={styles.confirm} variant={'light-red'}>
-            Confirm
-          </Button>
-        )}
-      </form>
-    </dialog>
+    <>
+      {createPortal(
+        <dialog
+          className={styles.modal}
+          ref={dialog}
+          onCancel={onCancel}
+          onClose={close}
+        >
+          <h3>{title}</h3>
+          <hr />
+          <p>{children}</p>
+          <form method="dialog">
+            <ButtonIcon
+              name={'close'}
+              className={styles.close}
+              size={'small'}
+              color={'white'}
+            />
+            {showConfirm && (
+              <Button style={styles.confirm} variant={'light-red'}>
+                Confirm
+              </Button>
+            )}
+          </form>
+        </dialog>,
+        document.body
+      )}
+    </>
   )
 }
 
