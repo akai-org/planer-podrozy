@@ -27,16 +27,28 @@ import PropTypes from 'prop-types'
  * onSelected - prop to passing callback which will be handled in onChange event - to manipulate state in parent component<br/>isRequired: false<br/> default value: empty callback: () => { }
  */
 
-const RadioButton = ({ labelName, id, isRequired, inverted, value, onSelected }) => {
+const RadioButton = ({
+  labelName,
+  id,
+  isRequired,
+  inverted,
+  value,
+  onSelected
+}) => {
   return (
     // not sure how to concat basic BEM class with modifier in better way
-    <div className={classNames(styles["radio-button"], inverted && styles['radio-button--inverted'])}>
-      <label className={classNames(styles["radio-button__label"])} htmlFor={id}>
+    <div
+      className={classNames(
+        styles['radio-button'],
+        inverted && styles['radio-button--inverted']
+      )}
+    >
+      <label className={classNames(styles['radio-button__label'])} htmlFor={id}>
         {labelName}
       </label>
       <input
         id={id}
-        className={classNames(styles["radio-button__value"])}
+        className={classNames(styles['radio-button__value'])}
         type="radio"
         value={value}
         onChange={onSelected}
@@ -60,7 +72,7 @@ RadioButton.defaultProps = {
   labelName: 'Radio 1',
   isRequired: false,
   inverted: false,
-  value: "radioInput",
+  value: 'radioInput',
   onSelected: () => {}
 }
 

@@ -7,7 +7,7 @@ export default {
   },
   // TODO: how to declare onchange event for this component prop
   argTypes: {
-    onSelected: {action: "click"}
+    onSelected: { action: 'click' }
   }
 }
 
