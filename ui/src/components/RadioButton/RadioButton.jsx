@@ -23,20 +23,23 @@ import PropTypes from 'prop-types'
  * - labelName - value for label to improve readable input<br/> isRequired: true<br/>default value: "Radio 1"
  * - required - set if user must fill this input or it's optional<br/> isRequired: false<br/>default value: false
  * - inverted - set layout order - first label then input or reversed <br/> isRequired: false<br/>default value: false
+ * - value - value which will be handled in the future in forms <br/> isRequired: true<br/>default value: id value
+ * onSelected - prop to passing callback which will be handled in onChange event - to manipulate state in parent component<br/>isRequired: false<br/> default value: empty callback: () => { }
  */
 
-const RadioButton = ({ labelName, id, isRequired, inverted }) => {
-  const radioLayout = inverted && 'radioButton--inverted'
+const RadioButton = ({ labelName, id, isRequired, inverted, value, onSelected }) => {
   return (
     // not sure how to concat basic BEM class with modifier in better way
-    <div className={classNames(styles.radioButton, styles[radioLayout])}>
-      <label className={classNames(styles.radioButton__label)} htmlFor={id}>
+    <div className={classNames(styles["radio-button"], inverted && styles['radio-button--inverted'])}>
+      <label className={classNames(styles["radio-button__label"])} htmlFor={id}>
         {labelName}
       </label>
       <input
         id={id}
-        className={classNames(styles.radioButton__value)}
+        className={classNames(styles["radio-button__value"])}
         type="radio"
+        value={value}
+        onChange={onSelected}
         required={isRequired}
       />
     </div>
@@ -47,14 +50,18 @@ RadioButton.propTypes = {
   id: PropTypes.string.isRequired,
   labelName: PropTypes.string.isRequired,
   isRequired: PropTypes.bool,
-  inverted: PropTypes.bool
+  inverted: PropTypes.bool,
+  value: PropTypes.string.isRequired,
+  onSelected: PropTypes.func
 }
 
 RadioButton.defaultProps = {
   id: 'radioInput',
   labelName: 'Radio 1',
   isRequired: false,
-  inverted: false
+  inverted: false,
+  value: "radioInput",
+  onSelected: () => {}
 }
 
 export default RadioButton

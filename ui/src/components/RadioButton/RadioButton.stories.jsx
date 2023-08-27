@@ -4,6 +4,10 @@ export default {
   component: RadioButton,
   parameters: {
     componentSubtitle: 'A Radio Button component.'
+  },
+  // TODO: how to declare onchange event for this component prop
+  argTypes: {
+    onSelected: {action: "click"}
   }
 }
 
