@@ -1,0 +1,10 @@
+# These owners will be the default owners for everything in
+# the repo. Unless a later match takes precedence,
+# these users will be requested for
+# review when someone opens a pull request.
+
+* @marcol13 @Fuligor
+
+/ui/ @marcol13 @PixelSculptor @A-Wodnicki @martao02p @agradecki @Arashayo
+
+/api/ @Fuligor @kyrstke @Maksymilian-Plywaczyk @PiotrLas @Arashayo
