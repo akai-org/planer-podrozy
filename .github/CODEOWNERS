@@ -5,6 +5,16 @@
 
 * @marcol13 @Fuligor
 
+# These owners will be the owners for frontend part
+# of this repo. Unless a later match takes precedence,
+# these users will be requested for
+# review when someone opens a pull request.
+
 /ui/ @marcol13 @PixelSculptor @A-Wodnicki @martao02p @agradecki @Arashayo
+
+# These owners will be the owners for backend part
+# of this repo. Unless a later match takes precedence,
+# these users will be requested for
+# review when someone opens a pull request.
 
 /api/ @Fuligor @kyrstke @Maksymilian-Plywaczyk @PiotrLas @Arashayo
