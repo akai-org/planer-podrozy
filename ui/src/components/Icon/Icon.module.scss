@@ -1,45 +1,39 @@
-@import "../../assets/styles/abstracts/variables";
+@import '../../assets/styles/abstracts/variables';
 
 @mixin icons {
   display: inline-block;
   margin: 0;
   padding: 0;
 }
+
 .icon {
   @include icons;
+  
   display: flex;
 }
 
 .blue {
-  color: $color-primary;
+  color: $alternative-a700;
 }
 
 .navy {
-  color: $color-primary-dark;
-}
-
-.purple {
-  color: $color-secondary;
-}
-
-.orange {
-  color: $color-tone-shift;
+  color: $alternative-a900;
 }
 
 .white {
-  color: $color-white;
+  color: $base-white;
 }
 
 .black {
-  color: $color-black;
+  color: $base-black;
 }
 
 .grey {
-  color: $color-mid-tone;
+  color: $grayscale-g500;
 }
 
 .red {
-  color:$color-red;
+  color: $primary-p900;
 }
 
 .smaller {

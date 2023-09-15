@@ -1,4 +1,4 @@
-@import '../../assets/styles/abstracts/_variables.scss';
+@import '../../assets/styles/abstracts/_variables';
 
 @mixin universal {
   padding: 1em;
@@ -7,37 +7,31 @@
 }
 
 .blue {
-  color: $color-white;
-  background-color: $color-primary;
+  color: $base-white;
+  background-color: $alternative-a700;
   @include universal;
 }
 
 .dark-blue {
-  color: $color-white;
-  background-color: $color-primary-dark;
-  @include universal;
-}
-
-.purple {
-  color: $color-white;
-  background-color: $color-secondary;
+  color: $base-white;
+  background-color: $alternative-a900;
   @include universal;
 }
 
 .light-red {
-  color: $color-black;
-  background-color: $color-tone-shift;
+  color: $base-black;
+  background-color: $primary-p500;
   @include universal;
 }
 
 .black {
-  color: $color-white;
-  background-color: $color-black;
+  color: $base-white;
+  background-color: $base-black;
   @include universal;
 }
 
 .white {
-  color: $color-black;
-  background-color: $color-white;
+  color: $base-black;
+  background-color: $base-white;
   @include universal;
 }
