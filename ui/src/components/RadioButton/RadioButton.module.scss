@@ -1,0 +1,27 @@
+@use '../../assets/styles/index.scss' as abstract;
+@use '../../assets/styles/abstracts/functions.scss' as utils;
+
+.radio-button {
+  @include abstract.flex-position($align-items: center);
+
+  font-size: utils.px-to-rem-converter(abstract.$font-size-p);
+  line-height: utils.px-to-rem-converter(abstract.$line-height-p);
+  width: fit-content;
+
+  // in figma cannot measure gap between input and label
+  gap: utils.px-to-rem-converter(10);
+
+  &__value {
+    height: utils.px-to-rem-converter(20);
+    width: utils.px-to-rem-converter(20);
+    margin: 0;
+
+    &:checked {
+      accent-color: abstract.$alternative-a700;
+    }
+  }
+
+  &--inverted {
+    flex-direction: row-reverse;
+  }
+}
