@@ -13,6 +13,7 @@ import {
 import { IoMdHeart } from 'react-icons/io'
 import { AiOutlineClockCircle } from 'react-icons/ai'
 import { BsCircleFill } from 'react-icons/bs'
+import { GrClose } from 'react-icons/gr'
 
 import styles from './Icon.module.scss'
 import classNames from 'classnames'
@@ -28,7 +29,8 @@ export const iconNames = {
   clock: AiOutlineClockCircle,
   timer: MdOutlineTimer,
   flag: MdFlag,
-  dot: BsCircleFill
+  dot: BsCircleFill,
+  close: GrClose
 }
 
 export const iconColors = ['blue', 'navy', 'white', 'black', 'grey', 'red']
