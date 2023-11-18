@@ -2,7 +2,7 @@ version: "3.9"
 services:
     postgres:
         image: postgis/postgis:16-3.4-alpine
-        restart: unless-stopped
+        restart: always
         environment:
             PGDATA: /data/
         env_file:
@@ -29,6 +29,8 @@ services:
         restart: unless-stopped
         volumes:
           - ./api/src:/api/
+          - ./api/migrations:/api/migrations
+          - ./api/alembic.ini:/api/alembic.ini
 
     ui:
         build:
