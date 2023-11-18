@@ -30,7 +30,7 @@ services:
         volumes:
           - ./api/src:/api/
           - ./api/migrations:/api/migrations
-          - ./api/alembic.ini:/api/alembic.ini
+          - ./api/src/alembic.ini:/api/alembic.ini
 
     ui:
         build:
