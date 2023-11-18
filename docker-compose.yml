@@ -1,9 +1,7 @@
 version: "3.9"
 services:
     postgres:
-        build:
-            context: ./deployment/postgres/
-            dockerfile: ./Dockerfile.database
+        image: postgis/postgis:16-3.4-alpine
         restart: unless-stopped
         environment:
             PGDATA: /data/
