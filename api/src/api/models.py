@@ -1,6 +1,7 @@
 """Describes models used in the project"""
-from typing import List
+from typing import List, Union
 
+from api.databases import Base
 from geoalchemy2 import Geography
 from sqlalchemy import (
     Boolean,
@@ -14,12 +15,8 @@ from sqlalchemy import (
     Text,
     Time,
 )
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy.types import LargeBinary
-
-
-class Base(DeclarativeBase):
-    pass
 
 
 class City(Base):
@@ -52,7 +49,7 @@ class RoutePoint(Base):
     id = Column(Integer, primary_key=True)
     route: Mapped[int] = mapped_column(ForeignKey("routes.id"))
     city: Mapped[int] = mapped_column(ForeignKey("cities.id"))
-    restriction: Mapped[int | None] = mapped_column(
+    restriction: Mapped[Union[int, None]] = mapped_column(
         ForeignKey("route_point_restrictions.id")
     )
     name = Column(String)

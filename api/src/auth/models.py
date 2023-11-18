@@ -9,6 +9,10 @@ from sqlalchemy.sql.sqltypes import TIMESTAMP
 
 
 class User(SQLAlchemyBaseUserTable[int], Base):
+    """User model"""
+
+    __tablename__ = "users"
+
     id = Column(Integer, primary_key=True)
     nickname = Column(String, unique=True, nullable=False)
     created_at = Column(
