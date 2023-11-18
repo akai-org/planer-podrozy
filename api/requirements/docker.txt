@@ -1,6 +1,7 @@
 GeoAlchemy2==0.13.1
 fastapi==0.95.*
 passlib==1.7.*
+alembic==1.12.1
 pydantic[email]==1.10.7
 PyJWT==2.6.*
 python-decouple==3.*
