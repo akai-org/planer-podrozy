@@ -1,8 +1,5 @@
 from fastapi import APIRouter
 
-from api.config import SECRET
-from auth.manager import get_user_manager
-from auth.models import User
 from fastapi_users import FastAPIUsers
 from fastapi_users.authentication import (
     AuthenticationBackend,
@@ -10,6 +7,9 @@ from fastapi_users.authentication import (
     JWTStrategy,
 )
 from sqlalchemy import Integer
+from src.api.config import SECRET
+from src.auth.manager import get_user_manager
+from src.auth.models import User
 
 from .router.auth import get_auth_router
 

@@ -28,9 +28,9 @@ services:
             condition: service_healthy
         restart: unless-stopped
         volumes:
-          - ./api/src:/api/
+          - ./api/src:/api/src
           - ./api/migrations:/api/migrations
-          - ./api/src/alembic.ini:/api/alembic.ini
+          - ./api/alembic.ini:/api/alembic.ini
 
     ui:
         build:

@@ -2,15 +2,15 @@ from typing import Optional
 
 from fastapi import Depends, Request
 
-from api.config import SECRET
-from auth.config import conf
-from auth.exceptions import NicknameAlreadyTaken
-from auth.models import User, get_user_db
-from auth.schemas import CredentialsSchema, EmailSchema
 from fastapi_mail import FastMail, MessageSchema, MessageType
 from fastapi_users import BaseUserManager, IntegerIDMixin, exceptions, models, schemas
 from sqlalchemy import Integer
 from sqlalchemy.exc import IntegrityError
+from src.api.config import SECRET
+from src.auth.config import conf
+from src.auth.exceptions import NicknameAlreadyTaken
+from src.auth.models import User, get_user_db
+from src.auth.schemas import CredentialsSchema, EmailSchema
 from starlette.responses import JSONResponse
 
 

@@ -1,7 +1,6 @@
 """Describes models used in the project"""
 from typing import List, Union
 
-from api.databases import Base
 from geoalchemy2 import Geography
 from sqlalchemy import (
     Boolean,
@@ -17,6 +16,8 @@ from sqlalchemy import (
 )
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy.types import LargeBinary
+
+from .databases import Base
 
 
 class City(Base):
