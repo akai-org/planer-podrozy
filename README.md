@@ -164,3 +164,25 @@ All containers are configured to work as development environment so each change 
 ## Backend workspace
 
 ./api/
+
+## Linters
+
+In this project we use _black_ and _isort_ as linters. In ordet to use them you must first install them with the following command:
+
+```
+pip install black isort
+```
+
+To format your code just type:
+
+```
+isort .
+black .
+```
+
+We have also configured pre-commit hook, that will automaticly format your code on every commit. To use them install pre-commit
+
+```
+pip install pre-commit
+pre-commit install
+```
