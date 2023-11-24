@@ -9,6 +9,7 @@ services:
           - deployment/database.dev.env
         volumes:
           - ./api/database:/data
+          - ./deployment/10_postgis.sh:/docker-entrypoint-initdb.d/10_postgis.sh
         healthcheck:
             test: ["CMD-SHELL", "pg_isready -U admin -d planer_podrozy"]
             interval: 5s
