@@ -46,7 +46,7 @@ exclude = [
     "dist",
     "node_modules",
     "venv",
-    "alembic/*"
+    "api/migrations/*"
 ]
 
 # Same as Black.
