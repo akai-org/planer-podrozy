@@ -20,6 +20,16 @@ if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
 from src.api.databases import Base
+from src.api.models import (
+    City,
+    Country,
+    Image,
+    Route,
+    RoutePoint,
+    RoutePointRestriction,
+    UserFavourite,
+)
+from src.auth.models import User
 
 # add your model's MetaData object here
 # for 'autogenerate' support
