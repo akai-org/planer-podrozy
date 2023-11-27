@@ -1,16 +1,15 @@
 version: "3.9"
 services:
     postgres:
-        build:
-            context: ./deployment/postgres/
-            dockerfile: ./Dockerfile.database
-        restart: unless-stopped
+        image: postgis/postgis:16-3.4-alpine
+        restart: always
         environment:
             PGDATA: /data/
         env_file:
           - deployment/database.dev.env
         volumes:
           - ./api/database:/data
+          - ./deployment/10_postgis.sh:/docker-entrypoint-initdb.d/10_postgis.sh
         healthcheck:
             test: ["CMD-SHELL", "pg_isready -U admin -d planer_podrozy"]
             interval: 5s
@@ -30,7 +29,9 @@ services:
             condition: service_healthy
         restart: unless-stopped
         volumes:
-          - ./api/src:/api/
+          - ./api/src:/api/src
+          - ./api/migrations:/api/migrations
+          - ./api/alembic.ini:/api/alembic.ini
 
     ui:
         build:

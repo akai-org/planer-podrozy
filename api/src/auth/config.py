@@ -1,5 +1,5 @@
-from api.config import EMAIL, EMAIL_PASSWORD
 from fastapi_mail import ConnectionConfig
+from src.api.config import EMAIL, EMAIL_PASSWORD
 
 conf = ConnectionConfig(
     MAIL_USERNAME=EMAIL,
