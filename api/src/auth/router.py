@@ -1,10 +1,16 @@
-from api.database import get_db
 from auth import models, schemas
 from auth.crud import change_user_password, create_new_user, get_user_by_email
-from auth.utils import create_access_token, verify, verify_reset_password_token
+from auth.utils import (
+    create_access_token,
+    get_hashed_password,
+    verify,
+    verify_reset_password_token,
+)
 from fastapi import APIRouter, Body, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
+
+from api.database import get_db
 
 router = APIRouter(prefix="/api", tags=["auth"])
 
@@ -63,3 +69,26 @@ def reset_user_password(
         )
     change_user_password(db, user, new_password)
     return {"message": "Password reset successfully"}
+
+
+@router.post("/change-password/", response_model=schemas.Message)
+def change_password(
+    user_email: str = Body(...),
+    old_password: str = Body(...),
+    new_password: str = Body(...),
+    db: Session = Depends(get_db),
+):
+    user = get_user_by_email(db=db, user_email=user_email)
+    if not user:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="User not found"
+        )
+    hashed_password = user.hashed_password
+    if verify(plain_password=old_password, hashed_password=hashed_password):
+        change_user_password(db, user, new_password)
+    else:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Old password don't match with current password",
+        )
+    return {"message": "Password changed successfully"}
