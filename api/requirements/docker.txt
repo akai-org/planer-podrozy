@@ -1,8 +1,8 @@
-GeoAlchemy2==0.13.1
+GeoAlchemy2==0.13.*
 fastapi==0.95.*
 passlib==1.7.*
-alembic==1.12.1
-pydantic[email]==1.10.7
+alembic==1.12.*
+pydantic[email]==1.10.*
 PyJWT==2.6.*
 python-decouple==3.*
 SQLAlchemy==2.0.*
@@ -10,5 +10,5 @@ uvicorn==0.21.*
 psycopg2==2.9.*
 asyncpg==0.27.*
 python-multipart==0.0.*
-fastapi-mail==1.2.7
-fastapi-users[sqlalchemy]==10.4.2
+fastapi-mail==1.2.*
+fastapi-users[sqlalchemy]==10.4.*

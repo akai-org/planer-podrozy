@@ -15,9 +15,6 @@ for DB in template_postgis "$POSTGRES_DB"; do
 	echo "Loading PostGIS extensions into $DB"
 	"${psql[@]}" --dbname="$DB" <<-'EOSQL'
 		CREATE EXTENSION IF NOT EXISTS postgis;
-		-- Reconnect to update pg_setting.resetval
-		-- See https://github.com/postgis/docker-postgis/issues/288
-		\c
 		CREATE EXTENSION IF NOT EXISTS fuzzystrmatch;
 EOSQL
 done
