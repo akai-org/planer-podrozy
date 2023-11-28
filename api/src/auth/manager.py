@@ -11,7 +11,6 @@ from src.auth.config import conf
 from src.auth.exceptions import NicknameAlreadyTaken
 from src.auth.models import User, get_user_db
 from src.auth.schemas import CredentialsSchema, EmailSchema
-from starlette.responses import JSONResponse
 
 
 class UserManager(IntegerIDMixin, BaseUserManager[User, Integer]):
@@ -74,7 +73,7 @@ class UserManager(IntegerIDMixin, BaseUserManager[User, Integer]):
             <p>Hi! Please verify your email to finish your registration at guide.me. Your verification token:</p>
             <p>{token}</p>
             <p>Copy this token and paste it in the verification form.</p>
-            """
+            """  # noqa
 
         email = EmailSchema(email=[user.email])
 
