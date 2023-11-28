@@ -28,7 +28,7 @@ class UserUpdate(schemas.BaseUserUpdate):
     is_verified: Optional[bool] = None
 
 
-class UserRead(schemas.BaseUser[Integer]):
+class UserRead(schemas.BaseUser[Integer]):  # noqa
     pass
 
 

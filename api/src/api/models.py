@@ -67,6 +67,7 @@ class RoutePoint(Base):
 
 class Image(Base):
     "Image model"
+
     __tablename__ = "images"
 
     id = Column(Integer, primary_key=True)
