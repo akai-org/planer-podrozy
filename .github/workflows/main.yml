@@ -13,6 +13,7 @@ on:
       - backend
     paths:
       - 'api/**'
+      - '.isort.cfg'
       
 jobs:
   build:
@@ -22,8 +23,8 @@ jobs:
       - name: python-isort
         uses: isort/isort-action@v1
         with:
-          isort-version: 5.10.1 
-      
+          isort-version: 5.10.1
+
       - name: Black Check
         uses: jpetrucciani/black-check@22.10.0
       - name: Isort Check
