@@ -18,9 +18,9 @@ InternalLink.args = {
   url: '/page',
   text: 'Internal Link',
   external: false
-};
+}
 
-export const ExternalLink = Template.bind({});
+export const ExternalLink = Template.bind({})
 ExternalLink.args = {
   url: 'https://www.put.poznan.pl',
   text: 'External Link',
