@@ -1,9 +1,9 @@
 @import '../../assets/styles/abstracts/variables';
 
-.text-link {
+.textLink {
     text-decoration: underline;
     color: $alternative-a500;
-    padding: 10px 4px 0px 4px;
+    padding: 0.625em 0.25em 0em 0.25em;
     border-radius: 2px;
     transition: background-color 0.3s;
 
@@ -13,15 +13,14 @@
 
     &:focus {
         outline: none;
-        background-color: $primary-p100
-        ;
+        background-color: $primary-p100;
     }
 
 }
 
-.external-icon {
-    top: -0.2em;
-    margin-left: 0.3em;
+.externalIcon {
+    top: -3.2px;
+    margin-left: 4.8px;
     vertical-align: text-bottom;
     position: relative;
 }

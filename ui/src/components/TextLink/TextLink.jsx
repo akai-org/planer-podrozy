@@ -1,5 +1,5 @@
 import React from 'react'
-import './TextLink.scss'
+import classes from './TextLink.module.scss'
 import { FiExternalLink } from 'react-icons/fi'
 import PropTypes from 'prop-types'
 
@@ -14,10 +14,10 @@ const TextLink = ({ url, text, external }) => {
       target={external ? '_blank' : '_self'}
       rel={external ? 'noopener noreferrer' : ''}
       onClick={handleClick}
-      className={`text-link ${external ? 'external' : ''}`}
+      className={`${classes.textLink} ${external ? 'external' : ''}`}
     >
       {text}
-      {external && <FiExternalLink className='external-icon'/>}
+      {external && <FiExternalLink className={classes.externalIcon}/>}
     </a>
   )
 }
