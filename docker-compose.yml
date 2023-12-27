@@ -15,6 +15,14 @@ services:
             interval: 5s
             timeout: 5s
             retries: 15
+    pgadmin:
+        image: dpage/pgadmin4
+        env_file:
+          - deployment/database.pgadmin.dev.env
+        ports:
+          - "8081:8001"
+        depends_on:
+          - postgres
     api:
         build:
             context: ./
